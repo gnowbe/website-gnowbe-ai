@@ -1,0 +1,74 @@
+html {
+  scroll-behavior: smooth;
+}
+/* Improve focus visibility for accessibility */
+:focus-visible {
+  outline: 2px solid #1b585e;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+/* Custom style for the award badge shape */
+.badge-clip {
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0 88%);
+}
+/* Custom hero gradient */
+.hero-gradient {
+  background: #8e4bb3;
+  background: linear-gradient(
+    270deg,
+    rgba(142, 75, 179, 1) 0%,
+    rgba(151, 51, 238, 1) 100%
+  );
+}
+
+/* Dark mode hero gradient */
+.dark .hero-gradient {
+  background: linear-gradient(270deg, #371d47 0%, #4f1aa6 100%);
+}
+/* Text shadow for better readability on complex backgrounds */
+.text-shadow {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .video-container {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    height: auto !important;
+    margin: 0 auto 20px auto !important;
+  }
+
+  .video-container video {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+  }
+}
+
+/* Custom hover underline for navbar and footer links */
+/* This targets links in the header's navigation divs, the mobile menu, and the footer,
+     while excluding any link styled as a button (containing 'bg-gnowbe-yellow' in its class).
+     This prevents the underline from appearing on the logo and "Book a Demo" buttons. */
+header nav div a:not([class*="bg-gnowbe-yellow"]),
+#mobile-menu a:not([class*="bg-gnowbe-yellow"]),
+footer a {
+  text-decoration: none;
+  transition: text-decoration-color 0.3s ease;
+}
+
+header nav div a:not([class*="bg-gnowbe-yellow"]):hover,
+#mobile-menu a:not([class*="bg-gnowbe-yellow"]):hover,
+footer a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #1b585e; /* Light mode default */
+}
+
+/* Dark mode underline color */
+.dark header nav div a:not([class*="bg-gnowbe-yellow"]):hover,
+.dark #mobile-menu a:not([class*="bg-gnowbe-yellow"]):hover,
+.dark footer a:hover {
+  text-decoration-color: #2e8f99;
+}
