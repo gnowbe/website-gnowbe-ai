@@ -1,9 +1,16 @@
-<!DOCTYPE html>
-<html lang="en" class="">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gnowbe AI: Smarter, Faster, Safer AI for Training & Design</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gnowbe AI: Smarter, Faster, Safer AI for Training & Design</title>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XVJPB7R5S9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-XVJPB7R5S9');
+  </script>
     <meta
       name="description"
       content="Gnowbe AI’s agents empower businesses to create, translate, and scale training instantly—no AI expertise needed. Discover our suite of tools for high-impact learning experiences."
@@ -92,6 +99,12 @@
   <body
     class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased"
   >
+    <div id="cookie-consent-banner" class="hidden fixed bottom-0 left-0 right-0 bg-gray-800 text-white p-4 text-center z-50">
+        <p class="inline">We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
+        <button id="accept-cookies" class="bg-gnowbe-yellow hover:bg-gnowbe-yellow-darker text-black font-bold py-2 px-4 rounded ml-4">
+            Accept
+        </button>
+    </div>
     <header
       x-data="{ open: false, dropdownOpen: false }"
       class="bg-gray-50/80 dark:bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm"
@@ -1515,4 +1528,12 @@
       </div>
     </footer>
   </body>
+
+  <script>
+    !function(){var i="analytics",analytics=window[i]=window[i]||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","screen","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware","register"];analytics.factory=function(e){return function(){if(window[i].initialized)return window[i][e].apply(window[i],arguments);var n=Array.prototype.slice.call(arguments);if(["track","screen","alias","group","page","identify"].indexOf(e)>-1){var c=document.querySelector("link[rel='canonical']");n.push({__t:"bpc",c:c&&c.getAttribute("href")||void 0,p:location.pathname,u:location.href,s:location.search,t:document.title,r:document.referrer})}n.unshift(e);analytics.push(n);return analytics}};for(var n=0;n<analytics.methods.length;n++){var key=analytics.methods[n];analytics[key]=analytics.factory(key)}analytics.load=function(key,n){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.setAttribute("data-global-segment-analytics-key",i);t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(t,r);analytics._loadOptions=n};analytics._writeKey="uC8lzaUyjmypXHvHqVZenGjApDyIIKck";;analytics.SNIPPET_VERSION="5.2.0";
+    // analytics.load("uC8lzaUyjmypXHvHqVZenGjApDyIIKck");
+    // analytics.page();
+    }}();
+  </script>
+
 </html>
