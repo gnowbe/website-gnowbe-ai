@@ -40,3 +40,30 @@ function toggleTheme() {
     localStorage.setItem("theme", "dark");
   }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const cookieConsentBanner = document.getElementById("cookie-consent-banner");
+  const acceptCookiesButton = document.getElementById("accept-cookies");
+
+  // Function to initialize analytics
+  function initializeAnalytics() {
+    if (window.analytics && !window.analytics.initialized) {
+      analytics.load("uC8lzaUyjmypXHvHqVZenGjApDyIIKck");
+      analytics.page();
+    }
+  }
+
+  // Check if consent has already been given
+  if (!localStorage.getItem("cookie_consent")) {
+    cookieConsentBanner.classList.remove("hidden");
+  } else {
+    initializeAnalytics();
+  }
+
+  // Event listener for the accept button
+  acceptCookiesButton.addEventListener("click", function () {
+    localStorage.setItem("cookie_consent", "true");
+    cookieConsentBanner.classList.add("hidden");
+    initializeAnalytics();
+  });
+});
