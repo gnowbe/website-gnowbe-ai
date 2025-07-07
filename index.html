@@ -769,7 +769,7 @@
                 </div>
                 <div class="mt-10 md:mt-0">
                   <img
-                    src="images/StuddyBuddy_image.png"
+                    src="images/Magic Chat.png"
                     alt="Interface of Gnowbe's AI Study Buddy and Curator Coach."
                     class="rounded-lg shadow-xl ring-1 ring-black/5"
                   />
@@ -809,7 +809,6 @@
                 "
               >
                 <video
-                  id="lightModeVideo"
                   src="images/LightVideoMockup.mp4"
                   autoplay
                   loop
@@ -817,10 +816,10 @@
                   playsinline
                   class="block dark:hidden"
                   style="width: 100%; height: 100%; object-fit: cover"
+                  onended="this.play()"
                 ></video>
 
                 <video
-                  id="darkModeVideo"
                   src="images/Dark - Video Mockup.mp4"
                   autoplay
                   loop
@@ -828,6 +827,7 @@
                   playsinline
                   class="hidden dark:block"
                   style="width: 100%; height: 100%; object-fit: cover"
+                  onended="this.play()"
                 ></video>
               </div>
             </div>
@@ -863,6 +863,316 @@
                 <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">
                   Accessible anytime, anywhere, fostering peer collaboration.
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-16 md:py-24">
+        <div class="container mx-auto px-6 max-w-screen-xl">
+          <div class="text-center max-w-4xl mx-auto">
+            <h2
+              class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white"
+            >
+              Smarter. Faster. Safer.
+            </h2>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+              Discover how Gnowbe AI is transforming learning and training with
+              smarter, faster, and safer AI-driven solutions. Explore expert
+              blogs, insights, and guides.
+            </p>
+          </div>
+          <div class="mt-16 grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+            <div
+              class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-md transition-shadow hover:shadow-lg"
+            >
+              <div
+                class="inline-flex p-3 bg-[#5EC3C5]/10 dark:bg-[#5EC3C5]/20 rounded-xl mb-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-[#5EC3C5]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M9.5 12.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z" />
+                  <path d="M14.5 12.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z" />
+                  <path d="M19.5 12.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z" />
+                  <path
+                    d="M4.5 10V9a4.5 4.5 0 0 1 4.5-4.5h0A4.5 4.5 0 0 1 13.5 9v1"
+                  />
+                  <path
+                    d="M10.5 15v1a4.5 4.5 0 0 0 4.5 4.5h0a4.5 4.5 0 0 0 4.5-4.5v-1"
+                  />
+                  <path d="M13.5 12.5h-11" />
+                  <path d="M14.5 12.5h6" />
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
+                Smarter AI
+              </h3>
+              <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">
+                An all-in-one AI powered by chained LLMs trained in
+                instructional design to structure content with learning best
+                practices in mind. It ensures every course is optimized for
+                engagement, retention, and real outcomes—helping trainers
+                deliver high-impact learning effortlessly.
+              </p>
+              <a
+                href="https://www.gnowbe.com/blog/smarter-ai-for-training"
+                class="mt-4 inline-block font-semibold text-[#1B585E] dark:text-[#2E8F99] hover:underline"
+                >Read More →</a
+              >
+            </div>
+            <div
+              class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-md transition-shadow hover:shadow-lg"
+            >
+              <div
+                class="inline-flex p-3 bg-[#5EC3C5]/10 dark:bg-[#5EC3C5]/20 rounded-xl mb-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-[#5EC3C5]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M13 3l-10 11h9l-1 7l10-11h-9l1-7z" />
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
+                Faster AI
+              </h3>
+              <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">
+                Go from idea to fully built training in minutes. By automating
+                research, structuring, and content generation, Gnowbe AI cuts
+                course development time by up to 90%—eliminating weeks of manual
+                work so organizations can scale training faster.
+              </p>
+              <a
+                href="https://www.gnowbe.com/blog/ai-for-training-faster-course-creation"
+                class="mt-4 inline-block font-semibold text-[#1B585E] dark:text-[#2E8F99] hover:underline"
+                >Read More →</a
+              >
+            </div>
+            <div
+              class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-md transition-shadow hover:shadow-lg"
+            >
+              <div
+                class="inline-flex p-3 bg-[#5EC3C5]/10 dark:bg-[#5EC3C5]/20 rounded-xl mb-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-[#5EC3C5]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <circle cx="12" cy="12" r="2.5" />
+                  <path d="M12 14.5v1.5" />
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
+                Safer AI
+              </h3>
+              <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">
+                Enterprise-grade security designed for trust and compliance.
+                Built with GDPR, SCCs, and advanced data protection, Gnowbe AI
+                safeguards your content, intellectual property, and user
+                data—ensuring businesses can scale training with confidence.
+              </p>
+              <a
+                href="https://www.gnowbe.com/blog/safer-ai-for-training-content"
+                class="mt-4 inline-block font-semibold text-[#1B585E] dark:text-[#2E8F99] hover:underline"
+                >Read More →</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 md:py-24">
+        <div class="container mx-auto px-6 max-w-screen-xl">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white"
+          >
+            What our customers are saying
+          </h2>
+          <div class="mt-12 grid md:grid-cols-3 gap-8">
+            <div
+              class="relative aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg"
+            >
+              <iframe
+                class="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/J4vJi6ySJJk"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+
+            <div
+              class="relative aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg"
+            >
+              <iframe
+                class="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/rdw3RsHqSxw"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+
+            <div
+              class="relative aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg"
+            >
+              <iframe
+                class="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/T5gUFwRlARw"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 md:py-24">
+        <div class="container mx-auto px-6 max-w-screen-xl">
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2
+              class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white"
+            >
+              Learn more about
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-600 dark:from-purple-400 dark:to-indigo-500"
+                >Gnowbe AI</span
+              >
+            </h2>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+              Discover how Gnowbe AI is transforming learning and training with
+              smarter, faster, and safer AI-driven solutions. Explore expert
+              blogs, insights, and guides.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl flex flex-col"
+            >
+              <img
+                src="images/learn-more-about.jpg"
+                alt="Abstract image representing AI"
+                class="w-full h-56 object-cover"
+              />
+
+              <div class="p-6 flex flex-col flex-grow">
+                <h3
+                  class="mt-2 text-xl font-bold text-gray-900 dark:text-white"
+                >
+                  Learn more about Gnowbe AI's Magic Creator
+                </h3>
+                <p class="mt-3 text-gray-600 dark:text-gray-300 flex-grow">
+                  Turn static content into engaging, interactive training in
+                  minutes with Gnowbe’s Magic Creator. Powered by AI and built
+                  for L&D, it transforms your materials into mobile-first
+                  microlearning — no expertise needed.
+                </p>
+                <div class="mt-6">
+                  <a
+                    href="https://www.gnowbe.com/blog/gnowbe-ai-magic-creator"
+                    class="font-semibold text-[#1B585E] dark:text-[#2E8F99] hover:underline"
+                    >Read More →</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl flex flex-col"
+            >
+              <img
+                src="images/pre-launch.gif"
+                alt="Image of data charts and graphs"
+                class="w-full h-56 object-cover"
+              />
+
+              <div class="p-6 flex flex-col flex-grow">
+                <h3
+                  class="mt-2 text-xl font-bold text-gray-900 dark:text-white"
+                >
+                  Pre-launch Blog and Podcast on Gnowbe AI: Revolutionizing
+                  Employee Training and Upskilling
+                </h3>
+                <p class="mt-3 text-gray-600 dark:text-gray-300 flex-grow">
+                  Revolutionize your training and upskilling with Gnowbe AI:
+                  simply set your objectives and audience, upload existing
+                  resources, and the AI crafts customized, microlearning
+                  experiences rooted in instructional design best practices—all
+                  while slashing development time and keeping your content
+                  secure and scalable.
+                </p>
+                <div class="mt-6">
+                  <a
+                    href="https://www.gnowbe.com/blog/sneak-peek-gnowbe-ai-revolutionizing-training-upskilling"
+                    class="font-semibold text-[#1B585E] dark:text-[#2E8F99] hover:underline"
+                    >Read More →</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl flex flex-col"
+            >
+              <img
+                src="images/how-to-use.png"
+                alt="Person using a mobile phone for learning"
+                class="w-full h-56 object-cover"
+              />
+
+              <div class="p-6 flex flex-col flex-grow">
+                <h3
+                  class="mt-2 text-xl font-bold text-gray-900 dark:text-white"
+                >
+                  How to Use Magic Creator
+                </h3>
+                <p class="mt-3 text-gray-600 dark:text-gray-300 flex-grow">
+                  Turn any topic or resource into a polished, interactive
+                  microlearning program in seconds with Magic Creator — just
+                  upload your content or enter a topic, and Gnowbe’s AI Agent
+                  handles the rest, crafting engaging, social, and personalized
+                  training experiences built on proven instructional design
+                  principles.
+                </p>
+                <div class="mt-6">
+                  <a
+                    href="https://gnowbe.zendesk.com/hc/en-us/articles/37340708747411-Magic-Creator-powered-by-Gnowbe-AI"
+                    class="font-semibold text-[#1B585E] dark:text-[#2E8F99] hover:underline"
+                    >Read More →</a
+                  >
+                </div>
               </div>
             </div>
           </div>
@@ -1041,7 +1351,7 @@
                 </svg>
               </a>
               <a
-                href="https://www.youtube.com/@YourChannelName"
+                href="https://www.youtube.com/@Gnowbe"
                 aria-label="Gnowbe on YouTube"
                 class="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-white transition-colors"
               >
