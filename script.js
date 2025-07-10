@@ -1,6 +1,5 @@
-// 🔄 Gnowbe Website Script - Final Version
-
-// --- 1. Configuration ---
+// --- 1. TAILWIND CSS CONFIGURATION ---
+// Extends the default Tailwind configuration with custom brand colors and fonts.
 tailwind.config = {
   darkMode: "class",
   theme: {
@@ -22,54 +21,22 @@ tailwind.config = {
   },
 };
 
-// --- 2. Core Functions ---
+// --- 2. THEME MANAGEMENT ---
 
 /**
- * Manages which video should be playing based on the current theme.
- * This function is called on page load and when the theme is toggled.
- */
-function manageVideoPlayback() {
-  const lightVideo = document.getElementById("lightModeVideo");
-  const darkVideo = document.getElementById("darkModeVideo");
-
-  if (!lightVideo || !darkVideo) {
-    return;
-  }
-
-  const isDarkMode = document.documentElement.classList.contains("dark");
-
-  if (isDarkMode) {
-    lightVideo.pause();
-    darkVideo
-      .play()
-      .catch((e) => console.error("Dark video failed to play:", e));
-  } else {
-    darkVideo.pause();
-    lightVideo
-      .play()
-      .catch((e) => console.error("Light video failed to play:", e));
-  }
-}
-
-/**
- * Toggles the theme between light and dark and saves the preference.
+ * Toggles the theme between 'light' and 'dark' on the <html> element
+ * and persists the user's preference in localStorage.
  */
 function toggleTheme() {
   const html = document.documentElement;
-  html.classList.toggle("dark");
-
-  if (html.classList.contains("dark")) {
-    localStorage.setItem("theme", "dark");
-  } else {
-    localStorage.setItem("theme", "light");
-  }
-
-  manageVideoPlayback();
+  const isDark = html.classList.toggle("dark");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
 }
 
-// --- 3. Initialization on Page Load ---
+// --- 3. INITIALIZATION ON PAGE LOAD ---
 document.addEventListener("DOMContentLoaded", function () {
-  // --- Theme Initialization ---
+  // --- Initialize Theme ---
+  // Applies the stored theme or detects the user's system preference on first visit.
   if (
     localStorage.getItem("theme") === "dark" ||
     (!("theme" in localStorage) &&
@@ -80,40 +47,49 @@ document.addEventListener("DOMContentLoaded", function () {
     document.documentElement.classList.remove("dark");
   }
 
-  // --- Video Playback Initialization ---
-  manageVideoPlayback();
-
-  // --- Cookie Consent Handling ---
+  // --- Cookie Consent & Analytics ---
   const cookieConsentBanner = document.getElementById("cookie-consent-banner");
   const acceptCookiesButton = document.getElementById("accept-cookies");
   const declineCookiesButton = document.getElementById("decline-cookies");
 
+  /**
+   * Loads the Segment analytics script and fires the initial 'page' view.
+   * This function is called only after consent is given.
+   */
   function initializeAnalytics() {
-    // This function can be expanded to load analytics scripts dynamically
+    // Check if the Segment library is on the page and hasn't been initialized yet.
     if (window.analytics && !window.analytics.initialized) {
-      // NOTE: This assumes a Segment shim is on the page. For full compliance,
-      // the script tag itself should be created and injected here.
       analytics.load("uC8lzaUyjmypXHvHqVZenGjApDyIIKck");
       analytics.page();
+      // Set a flag to prevent re-initialization.
       window.analytics.initialized = true;
-      console.log("Analytics Initialized");
+      console.log("Segment Analytics Initialized.");
     }
   }
 
+  /**
+   * Checks the user's stored consent decision and acts accordingly.
+   * - If consent was given, initialize analytics.
+   * - If consent was denied, do nothing.
+   * - If no decision was made, show the consent banner.
+   */
   function handleConsent() {
     const consent = localStorage.getItem("cookie_consent");
 
     if (consent === "true") {
       initializeAnalytics();
     } else if (consent === "false") {
-      // User has declined, do nothing.
+      // Analytics are intentionally not loaded.
+      console.log("Segment Analytics blocked due to user preference.");
     } else {
+      // Show the banner if it exists.
       if (cookieConsentBanner) {
         cookieConsentBanner.classList.remove("hidden");
       }
     }
   }
 
+  // Attach event listener to the 'Accept' button.
   if (acceptCookiesButton) {
     acceptCookiesButton.addEventListener("click", function () {
       localStorage.setItem("cookie_consent", "true");
@@ -122,6 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Attach event listener to the 'Decline' button.
   if (declineCookiesButton) {
     declineCookiesButton.addEventListener("click", function () {
       localStorage.setItem("cookie_consent", "false");
@@ -129,20 +106,48 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Check the user's consent status as soon as the page loads.
   handleConsent();
 
-  // --- Enforce Video Looping ---
-  const lightVideo = document.getElementById("lightModeVideo");
-  if (lightVideo) {
-    lightVideo.addEventListener("ended", function () {
-      this.play();
+  // --- Event Tracking ---
+
+  // Track "Book a Demo" button click in the hero section
+  const heroBookDemo = document.getElementById("hero-book-demo");
+  if (heroBookDemo) {
+    heroBookDemo.addEventListener("click", () => {
+      analytics.track("Book a Demo Clicked", {
+        location: "hero",
+      });
     });
   }
 
-  const darkVideo = document.getElementById("darkModeVideo");
-  if (darkVideo) {
-    darkVideo.addEventListener("ended", function () {
-      this.play();
+  // Track "Explore Gnowbe AI" button click in the hero section
+  const heroExploreAi = document.getElementById("hero-explore-ai");
+  if (heroExploreAi) {
+    heroExploreAi.addEventListener("click", () => {
+      analytics.track("Explore Gnowbe AI Clicked", {
+        location: "hero",
+      });
+    });
+  }
+
+  // Track "Request a Live Demo" button click in the footer
+  const footerBookDemo = document.getElementById("footer-book-demo");
+  if (footerBookDemo) {
+    footerBookDemo.addEventListener("click", () => {
+      analytics.track("Book a Demo Clicked", {
+        location: "footer",
+      });
+    });
+  }
+
+  // Track "Try Gnowbe AI Free" button click in the footer
+  const footerTryAi = document.getElementById("footer-try-ai");
+  if (footerTryAi) {
+    footerTryAi.addEventListener("click", () => {
+      analytics.track("Try Gnowbe AI Free Clicked", {
+        location: "footer",
+      });
     });
   }
 });
