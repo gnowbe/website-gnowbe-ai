@@ -100,15 +100,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  const consent = localStorage.getItem("cookie_consent");
+  function handleConsent() {
+    const consent = localStorage.getItem("cookie_consent");
 
-  if (consent === "true") {
-    initializeAnalytics();
-  } else if (consent === "false") {
-    // User has declined, do nothing.
-  } else {
-    if (cookieConsentBanner) {
-      cookieConsentBanner.classList.remove("hidden");
+    if (consent === "true") {
+      initializeAnalytics();
+    } else if (consent === "false") {
+      // User has declined, do nothing.
+    } else {
+      if (cookieConsentBanner) {
+        cookieConsentBanner.classList.remove("hidden");
+      }
     }
   }
 
@@ -126,6 +128,8 @@ document.addEventListener("DOMContentLoaded", function () {
       cookieConsentBanner.classList.add("hidden");
     });
   }
+
+  handleConsent();
 
   // --- Enforce Video Looping ---
   const lightVideo = document.getElementById("lightModeVideo");
