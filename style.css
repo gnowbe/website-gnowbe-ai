@@ -1,16 +1,19 @@
 html {
   scroll-behavior: smooth;
 }
+
 /* Improve focus visibility for accessibility */
 :focus-visible {
   outline: 2px solid #1b585e;
   outline-offset: 2px;
   border-radius: 2px;
 }
+
 /* Custom style for the award badge shape */
 .badge-clip {
   clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0 88%);
 }
+
 /* Custom hero gradient */
 .hero-gradient {
   background: #8e4bb3;
@@ -25,11 +28,147 @@ html {
 .dark .hero-gradient {
   background: linear-gradient(270deg, #371d47 0%, #4f1aa6 100%);
 }
+
 /* Text shadow for better readability on complex backgrounds */
 .text-shadow {
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
+.marquee-container {
+  width: 100%;
+  overflow: hidden; /* Hides the overflowing content */
+  position: relative;
+  height: 250px; /* Adjust height as needed */
+  display: flex;
+  align-items: center;
+  border-radius: 0.75rem; /* rounded-lg */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 10%,
+    rgba(0, 0, 0, 1) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 10%,
+    rgba(0, 0, 0, 1) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.marquee-content {
+  display: flex; /* Lays out flag groups side-by-side */
+  width: 200%; /* Twice the container width for seamless loop */
+  animation: marquee 10s linear infinite;
+  animation-play-state: paused; /* Paused by default */
+}
+
+.marquee-container:hover .marquee-content {
+  animation-play-state: running; /* Runs on hover */
+}
+
+.marquee-group {
+  width: 100%; /* Each group takes up half the marquee-content width */
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flag-img {
+  width: 64px; /* Fixed width for flags */
+  height: 48px; /* Fixed height for flags */
+  object-fit: cover;
+  border-radius: 0.5rem; /* rounded-md */
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: transform 0.3s ease;
+}
+
+.marquee-container:hover .flag-img {
+  transform: scale(1.1);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Styles for the chat bubble and typing animation */
+.chat-bubble-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
+}
+
+.chat-bubble {
+  position: relative;
+  background-color: #d9d9d9;
+  color: #2b2b2b;
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 90%;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.chat-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 2rem;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-top-color: #d9d9d9;
+  border-bottom: 0;
+  border-left: 0;
+  margin-left: -10px;
+  margin-bottom: -20px;
+}
+
+/* Styles for replayable typing animation */
+.typing-text {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 600; /* font-semibold */
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0; /* Start with no width */
+  border-right: 0.15em solid transparent; /* Caret placeholder */
+}
+
+.typing-text.animate-typing {
+  /* This class is added on hover to trigger the animation */
+  animation: typewriter 4s steps(44) forwards,
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #2b2b2b;
+  }
+}
+
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .video-container {
     position: relative !important;
@@ -43,6 +182,26 @@ html {
     width: 100% !important;
     height: auto !important;
     object-fit: cover !important;
+  }
+
+  /* Responsive styles for the marquee */
+  .marquee-container {
+    height: 150px; /* Reduced height for smaller screens */
+  }
+
+  .flag-img {
+    width: 48px; /* Smaller flags for smaller screens */
+    height: 36px;
+  }
+}
+
+@media (max-width: 420px) {
+  .chat-bubble {
+    padding: 1rem;
+  }
+  .typing-text {
+    /* Reduce font size on small screens to prevent overflow */
+    font-size: 0.75rem;
   }
 }
 
