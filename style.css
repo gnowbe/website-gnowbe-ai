@@ -61,7 +61,7 @@ html {
 .marquee-content {
   display: flex; /* Lays out flag groups side-by-side */
   width: 200%; /* Twice the container width for seamless loop */
-  animation: marquee 10s linear infinite;
+  animation: marquee 7s linear infinite;
   animation-play-state: paused; /* Paused by default */
 }
 
