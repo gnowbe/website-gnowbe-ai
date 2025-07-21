@@ -129,19 +129,6 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Gnowbe",
-        "url": "https://www.gnowbe.com/",
-        "logo": "https://www.gnowbe.com/logo.png",
-        "sameAs": [
-          "https://www.linkedin.com/company/gnowbe/",
-          "https://www.instagram.com/gnowbe"
-        ]
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Gnowbe AI",
         "url": "https://www.gnowbe.com/ai",
@@ -657,12 +644,78 @@
                     </li>
                   </ul>
                 </div>
-                <div class="mt-10 md:mt-0">
-                  <img
-                    src="images/magic-creator.png"
-                    alt="Interface of Gnowbe's Magic Creator showing the process of creating a course from an uploaded file."
-                    class="rounded-lg shadow-xl ring-1 ring-black/5"
-                  />
+
+                <div
+                  class="group mt-10 md:mt-0 bg-gray-50 dark:bg-slate-800 p-8 rounded-lg shadow-inner space-y-6 transition-all duration-300"
+                >
+                  <div class="space-y-2">
+                    <label
+                      for="program-title"
+                      class="flex items-center text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Title
+                    </label>
+                    <div
+                      id="program-title"
+                      class="w-full bg-white dark:bg-slate-700 border border-gray-300 dark:border-slate-600 rounded-md p-2"
+                    >
+                      How to Improve Communications
+                    </div>
+                  </div>
+
+                  <div class="space-y-2">
+                    <label
+                      for="upload-files"
+                      class="flex items-center text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Upload Files
+                    </label>
+                    <div
+                      class="bg-purple-400 text-white font-semibold py-2 px-4 rounded-md inline-block cursor-pointer transition hover:bg-purple-500"
+                    >
+                      Attach
+                    </div>
+                  </div>
+
+                  <div
+                    class="space-y-2 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-96 transition-all duration-500 ease-in-out"
+                  >
+                    <label
+                      for="program-content"
+                      class="flex items-center text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      What content would you like your program to cover
+                    </label>
+                    <div
+                      id="program-content"
+                      rows="4"
+                      disabled
+                      class="w-full bg-white dark:bg-slate-700 border border-gray-300 dark:border-slate-600 rounded-md p-2 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition"
+                    >
+                      Improving listening and top down communication skills for
+                      managers as they step into leadership.
+                    </div>
+                  </div>
+
+                  <div
+                    class="space-y-2 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-96 transition-all duration-500 ease-in-out"
+                  >
+                    <label
+                      for="program-goals"
+                      class="flex items-center text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      What are your main goals for this program
+                    </label>
+                    <div
+                      id="program-goals"
+                      rows="4"
+                      disabled
+                      class="w-full bg-white dark:bg-slate-700 border border-gray-300 dark:border-slate-600 rounded-md p-2 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition"
+                    >
+                      Encourage two-way communication to build trust, alignment,
+                      and engagement within teams.
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -699,12 +752,68 @@
                     </li>
                   </ul>
                 </div>
+                <!-- Marquee replaces the original image div -->
                 <div class="mt-10 md:mt-0">
-                  <img
-                    src="images/image-21.png"
-                    alt="Interface of Gnowbe's Automatic Translation feature displaying a dropdown menu of languages to choose from."
-                    class="rounded-lg shadow-xl ring-1 ring-black/5"
-                  />
+                  <div class="marquee-container">
+                    <div class="marquee-content">
+                      <!-- First group of flags -->
+                      <div class="marquee-group">
+                        <img
+                          src="https://flagcdn.com/w80/us.png"
+                          alt="USA Flag"
+                          class="flag-img"
+                        />
+                        <img
+                          src="https://flagcdn.com/w80/de.png"
+                          alt="Germany Flag"
+                          class="flag-img"
+                        />
+                        <img
+                          src="https://flagcdn.com/w80/jp.png"
+                          alt="Japan Flag"
+                          class="flag-img"
+                        />
+                        <img
+                          src="https://flagcdn.com/w80/fr.png"
+                          alt="France Flag"
+                          class="flag-img"
+                        />
+                        <img
+                          src="https://flagcdn.com/w80/br.png"
+                          alt="Brazil Flag"
+                          class="flag-img"
+                        />
+                      </div>
+                      <!-- Second, identical group of flags for a seamless loop -->
+                      <div class="marquee-group">
+                        <img
+                          src="https://flagcdn.com/w80/us.png"
+                          alt="USA Flag"
+                          class="flag-img"
+                        />
+                        <img
+                          src="https://flagcdn.com/w80/de.png"
+                          alt="Germany Flag"
+                          class="flag-img"
+                        />
+                        <img
+                          src="https://flagcdn.com/w80/jp.png"
+                          alt="Japan Flag"
+                          class="flag-img"
+                        />
+                        <img
+                          src="https://flagcdn.com/w80/fr.png"
+                          alt="France Flag"
+                          class="flag-img"
+                        />
+                        <img
+                          src="https://flagcdn.com/w80/br.png"
+                          alt="Brazil Flag"
+                          class="flag-img"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -744,11 +853,22 @@
                   </ul>
                 </div>
                 <div class="mt-10 md:mt-0">
-                  <img
-                    src="images/Magic Chat.png"
-                    alt="Interface of Gnowbe's AI Study Buddy and Curator Coach."
-                    class="rounded-lg shadow-xl ring-1 ring-black/5"
-                  />
+                  <div
+                    x-data
+                    x-init="$refs.text.classList.add('animate-typing')"
+                    @mouseenter="
+                      $refs.text.classList.remove('animate-typing');
+                      void $refs.text.offsetWidth;
+                      $refs.text.classList.add('animate-typing');
+                  "
+                    class="chat-bubble-container"
+                  >
+                    <div class="chat-bubble">
+                      <p class="typing-text" x-ref="text">
+                        Hello! I'm your AI assistant
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
