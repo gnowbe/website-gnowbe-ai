@@ -154,7 +154,7 @@
     </script>
   </head>
   <body
-    class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased"
+    class="bg-white dark:bg-slate-900 text-gray-800 dark:text-gray-200 font-sans antialiased"
   >
     <div
       id="cookie-consent-banner"
@@ -178,7 +178,7 @@
         </button>
         <button
           id="accept-cookies"
-          class="bg-gnowbe-yellow hover:bg-gnowbe-yellow-darker text-black font-bold py-2 px-4 rounded"
+          class="bg-[#5EC3C5] hover:bg-[#53afb1] text-[#2b2b2b] font-bold py-2 px-4 rounded"
         >
           Accept
         </button>
@@ -187,7 +187,7 @@
 
     <header
       x-data="{ open: false, dropdownOpen: false }"
-      class="bg-gray-50/80 dark:bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm"
+      class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-40 shadow-sm"
     >
       <nav
         class="container mx-auto px-6 py-4 flex justify-between items-center max-w-screen-xl"
@@ -254,11 +254,13 @@
           <div
             class="relative"
             x-data="{ open: false }"
+            @mouseover="open = true"
             @mouseleave="open = false"
           >
             <button
-              @mouseover="open = true"
               class="flex items-center space-x-1 text-gray-600 dark:text-gray-300 focus:outline-none"
+              aria-haspopup="true"
+              :aria-expanded="open.toString()"
             >
               <span>Use Cases</span>
               <svg
@@ -369,8 +371,9 @@
             </svg>
           </button>
           <a
+            id="hero-book-demo"
             href="https://www.gnowbe.com/chat-with-us"
-            class="bg-gnowbe-yellow hover:bg-gnowbe-yellow-darker text-black px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"
+            class="bg-[#5EC3C5] hover:bg-[#53afb1] text-[#2b2b2b] px-8 py-3 rounded-md font-semibold transition-colors text-lg w-full sm:w-auto shadow-md"
             >Book a Demo</a
           >
         </div>
@@ -517,59 +520,93 @@
       </div>
     </header>
     <main>
-      <section class="py-44 md:py-48 hero-gradient">
-        <div class="container mx-auto px-6 text-center max-w-screen-xl">
-          <h1
-            class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white dark:text-white leading-tight"
-          >
-            Gnowbe AI: <br />
-            Built for Training and Design
-          </h1>
-          <p
-            class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-gray-50 dark:text-gray-300 font-medium"
-          >
-            Gnowbe AI’s agents with a suite of tools empower businesses to
-            create, translate, and scale training instantly—no AI expertise
-            needed. Unlike generic AI, it’s an all-in-one platform built for
-            training design, combining 30+ years of microlearning and
-            instructional best practices to deliver engaging, high-impact
-            learning experiences at scale.
-          </p>
-
+      <section class="relative bg-[#EDF2F4] dark:bg-slate-800 overflow-hidden">
+        <div aria-hidden="true" class="absolute inset-0 z-0">
           <div
-            class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4"
+            class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 transform"
           >
+            <div
+              class="h-[60rem] w-[60rem] rounded-full blur-3xl"
+              style="
+                background-image: radial-gradient(
+                  circle,
+                  rgba(167, 139, 250, 0.3),
+                  rgba(237, 242, 244, 0) 60%
+                );
+              "
+            ></div>
+          </div>
+          <div
+            class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 transform"
+          >
+            <div
+              class="h-[60rem] w-[60rem] rounded-full blur-3xl"
+              style="
+                background-image: radial-gradient(
+                  circle,
+                  rgba(253, 224, 71, 0.2),
+                  rgba(237, 242, 244, 0) 55%
+                );
+              "
+            ></div>
+          </div>
+        </div>
+
+        <div
+          class="relative z-10 mx-auto max-w-4xl px-6 py-32 sm:py-48 lg:py-56 text-center"
+        >
+          <div
+            class="bg-white/60 dark:bg-slate-900/60 p-8 md:p-12 rounded-3xl shadow-2xl backdrop-blur-xl ring-1 ring-black/5 dark:ring-white/10"
+          >
+            <h1
+              class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl"
+            >
+              Gnowbe AI: <br />
+              Built for Training and Design
+            </h1>
+            <p
+              class="mt-6 text-lg leading-8 text-slate-700 dark:text-slate-300"
+            >
+              Gnowbe AI’s agents empower businesses to create, translate, and
+              scale training instantly—no AI expertise needed. Unlike generic
+              AI, it’s an all-in-one platform built for training design,
+              combining 30+ years of microlearning and instructional best
+              practices to deliver engaging, high-impact learning experiences at
+              scale.
+            </p>
+          </div>
+
+          <div class="mt-10 flex items-center justify-center gap-x-6">
             <a
               id="hero-book-demo"
               href="https://www.gnowbe.com/chat-with-us"
-              class="bg-gnowbe-yellow hover:bg-gnowbe-yellow-darker text-black px-8 py-3 rounded-md font-semibold transition-colors text-lg w-full sm:w-auto"
+              class="bg-[#5EC3C5] hover:bg-[#53afb1] text-[#2b2b2b] px-8 py-3 rounded-md font-semibold transition-colors text-lg w-full sm:w-auto shadow-md"
               >Book a Demo</a
             >
             <a
               id="hero-explore-ai"
               href="https://web.gnowbe.com"
-              class="border border-white text-white px-8 py-3 rounded-md font-semibold hover:bg-white/20 transition-colors text-lg w-full sm:w-auto"
-              >Explore Gnowbe AI</a
+              class="font-semibold leading-6 text-slate-800 dark:text-slate-200 group"
+              >Explore Gnowbe AI
+              <span class="group-hover:ml-2 transition-all" aria-hidden="true"
+                >→</span
+              ></a
             >
           </div>
-          <p class="mt-6 text-sm text-white">
+          <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">
             Get <b>FREE</b> access to GNOWBE AI Agents today to complete
             <b>200 tasks</b> for you.
           </p>
         </div>
       </section>
-      <section class="py-16 md:py-24">
+
+      <section class="py-16 md:py-24 bg-[#EDF2F4] dark:bg-slate-800">
         <div class="container mx-auto px-6 max-w-screen-xl">
           <div class="text-center max-w-3xl mx-auto">
             <h2
               class="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white"
             >
-              Explore
-              <span
-                class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-600 dark:from-purple-400 dark:to-indigo-500"
-                >AI-Powered</span
-              >
-              Suite
+              Explore AI-Powered Suite
             </h2>
             <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
               Supercharge your team with an AI suite that makes training
@@ -582,7 +619,7 @@
 
           <div class="mt-16 space-y-16">
             <div
-              class="bg-white dark:bg-gray-800/50 rounded-2xl p-8 md:p-12 shadow-md"
+              class="bg-white/80 dark:bg-slate-900/70 p-8 md:p-12 rounded-2xl shadow-md backdrop-blur-sm"
             >
               <div
                 class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center"
@@ -600,41 +637,6 @@
                   </p>
                   <ul class="mt-6 space-y-6">
                     <li class="flex items-start">
-                      <svg
-                        class="flex-shrink-0 w-8 h-8 mr-4"
-                        width="80"
-                        height="80"
-                        viewBox="0 0 80 80"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                      >
-                        <rect
-                          width="80"
-                          height="80"
-                          fill="url(#pattern0_1567_234)"
-                        />
-                        <defs>
-                          <pattern
-                            id="pattern0_1567_234"
-                            patternContentUnits="objectBoundingBox"
-                            width="1"
-                            height="1"
-                          >
-                            <use
-                              xlink:href="#image0_1567_234"
-                              transform="scale(0.00625)"
-                            />
-                          </pattern>
-                          <image
-                            id="image0_1567_234"
-                            width="160"
-                            height="160"
-                            preserveAspectRatio="none"
-                            xlink:href="data:image/png;base64,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"
-                          />
-                        </defs>
-                      </svg>
                       <span class="text-lg text-gray-700 dark:text-gray-300"
                         >Upload new ideas or existing materials (PowerPoints,
                         PDFs, videos, or documents) and instantly convert them
@@ -642,42 +644,12 @@
                       >
                     </li>
                     <li class="flex items-start">
-                      <svg
-                        class="flex-shrink-0 w-8 h-8 mr-4"
-                        width="80"
-                        height="80"
-                        viewBox="0 0 80 80"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                      >
-                        <rect
-                          width="80"
-                          height="80"
-                          fill="url(#pattern0_1567_234)"
-                        />
-                      </svg>
                       <span class="text-lg text-gray-700 dark:text-gray-300"
                         >AI-assisted research, structuring, and content
                         creation—saving weeks of development time.</span
                       >
                     </li>
                     <li class="flex items-start">
-                      <svg
-                        class="flex-shrink-0 w-8 h-8 mr-4"
-                        width="80"
-                        height="80"
-                        viewBox="0 0 80 80"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                      >
-                        <rect
-                          width="80"
-                          height="80"
-                          fill="url(#pattern0_1567_234)"
-                        />
-                      </svg>
                       <span class="text-lg text-gray-700 dark:text-gray-300"
                         >User-friendly interface—no complex prompt engineering
                         required.</span
@@ -696,7 +668,7 @@
             </div>
 
             <div
-              class="bg-white dark:bg-gray-800/50 rounded-2xl p-8 md:p-12 shadow-md"
+              class="bg-white/80 dark:bg-slate-900/70 p-8 md:p-12 rounded-2xl shadow-md backdrop-blur-sm"
             >
               <div
                 class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center"
@@ -713,43 +685,13 @@
                     Train Your Global Workforce Effortlessly.
                   </p>
                   <ul class="mt-6 space-y-6">
-                    <li class="flex items-start">
-                      <svg
-                        class="flex-shrink-0 w-8 h-8 mr-4"
-                        width="80"
-                        height="80"
-                        viewBox="0 0 80 80"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                      >
-                        <rect
-                          width="80"
-                          height="80"
-                          fill="url(#pattern0_1567_234)"
-                        />
-                      </svg>
+                    <li>
                       <span class="text-lg text-gray-700 dark:text-gray-300"
                         >Instantly translate courses into 70+ languages while
                         preserving instructional integrity.</span
                       >
                     </li>
-                    <li class="flex items-start">
-                      <svg
-                        class="flex-shrink-0 w-8 h-8 mr-4"
-                        width="80"
-                        height="80"
-                        viewBox="0 0 80 80"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                      >
-                        <rect
-                          width="80"
-                          height="80"
-                          fill="url(#pattern0_1567_234)"
-                        />
-                      </svg>
+                    <li>
                       <span class="text-lg text-gray-700 dark:text-gray-300"
                         >Ensure accessibility and engagement for diverse and
                         global teams—without extra manual effort.</span
@@ -768,7 +710,7 @@
             </div>
 
             <div
-              class="bg-white dark:bg-gray-800/50 rounded-2xl p-8 md:p-12 shadow-md"
+              class="bg-white/80 dark:bg-slate-900/70 p-8 md:p-12 rounded-2xl shadow-md backdrop-blur-sm"
             >
               <div
                 class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center"
@@ -786,21 +728,6 @@
                   </p>
                   <ul class="mt-6 space-y-6">
                     <li class="flex items-start">
-                      <svg
-                        class="flex-shrink-0 w-8 h-8 mr-4"
-                        width="80"
-                        height="80"
-                        viewBox="0 0 80 80"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                      >
-                        <rect
-                          width="80"
-                          height="80"
-                          fill="url(#pattern0_1567_234)"
-                        />
-                      </svg>
                       <span class="text-lg text-gray-700 dark:text-gray-300"
                         >Empower learners with an AI-powered Study Buddy that
                         answers questions instantly and deepens
@@ -808,21 +735,6 @@
                       >
                     </li>
                     <li class="flex items-start">
-                      <svg
-                        class="flex-shrink-0 w-8 h-8 mr-4"
-                        width="80"
-                        height="80"
-                        viewBox="0 0 80 80"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                      >
-                        <rect
-                          width="80"
-                          height="80"
-                          fill="url(#pattern0_1567_234)"
-                        />
-                      </svg>
                       <span class="text-lg text-gray-700 dark:text-gray-300"
                         >Boost impact with the AI Curator Coach to guide you and
                         recommend enhancements that improve learning
@@ -844,18 +756,13 @@
         </div>
       </section>
 
-      <section class="py-16 md:py-24 bg-gray-50 dark:bg-gray-900">
+      <section class="py-16 md:py-24 bg-[#EDF2F4] dark:bg-slate-800">
         <div class="container mx-auto px-6 max-w-screen-xl">
           <div class="text-center mb-16">
             <h2
               class="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white"
             >
-              Why
-              <span
-                class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-600 dark:from-purple-400 dark:to-indigo-500"
-              >
-                Gnowbe AI </span
-              >?
+              Why Gnowbe AI ?
             </h2>
           </div>
 
@@ -898,7 +805,7 @@
 
             <div class="flex flex-col gap-8">
               <div
-                class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-md transition-shadow"
+                class="p-8 bg-white/80 dark:bg-slate-900/70 rounded-2xl shadow-md backdrop-blur-sm"
               >
                 <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
                   End-to-End Learning Solution
@@ -908,7 +815,7 @@
                 </p>
               </div>
               <div
-                class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-md transition-shadow"
+                class="p-8 bg-white/80 dark:bg-slate-900/70 rounded-2xl shadow-md backdrop-blur-sm"
               >
                 <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
                   Real-World Application
@@ -919,7 +826,7 @@
                 </p>
               </div>
               <div
-                class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-md transition-shadow"
+                class="p-8 bg-white/80 dark:bg-slate-900/70 rounded-2xl shadow-md backdrop-blur-sm"
               >
                 <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
                   Mobile-First & Social Learning
@@ -932,7 +839,7 @@
           </div>
         </div>
       </section>
-      <section class="py-16 md:py-24">
+      <section class="py-16 md:py-24 bg-[#EDF2F4] dark:bg-slate-800">
         <div class="container mx-auto px-6 max-w-screen-xl">
           <div class="text-center max-w-4xl mx-auto">
             <h2
@@ -948,7 +855,7 @@
           </div>
           <div class="mt-16 grid md:grid-cols-1 lg:grid-cols-3 gap-8">
             <div
-              class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-md transition-shadow hover:shadow-lg"
+              class="p-8 bg-white/80 dark:bg-slate-900/70 rounded-2xl shadow-md backdrop-blur-sm transition-shadow hover:shadow-lg"
             >
               <div
                 class="inline-flex p-3 bg-[#5EC3C5]/10 dark:bg-[#5EC3C5]/20 rounded-xl mb-4"
@@ -988,7 +895,7 @@
               </p>
             </div>
             <div
-              class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-md transition-shadow hover:shadow-lg"
+              class="p-8 bg-white/80 dark:bg-slate-900/70 rounded-2xl shadow-md backdrop-blur-sm transition-shadow hover:shadow-lg"
             >
               <div
                 class="inline-flex p-3 bg-[#5EC3C5]/10 dark:bg-[#5EC3C5]/20 rounded-xl mb-4"
@@ -1017,7 +924,7 @@
               </p>
             </div>
             <div
-              class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-md transition-shadow hover:shadow-lg"
+              class="p-8 bg-white/80 dark:bg-slate-900/70 rounded-2xl shadow-md backdrop-blur-sm transition-shadow hover:shadow-lg"
             >
               <div
                 class="inline-flex p-3 bg-[#5EC3C5]/10 dark:bg-[#5EC3C5]/20 rounded-xl mb-4"
@@ -1051,7 +958,7 @@
         </div>
       </section>
 
-      <section class="py-16 md:py-24">
+      <section class="py-16 md:py-24 bg-[#EDF2F4] dark:bg-slate-800">
         <div class="container mx-auto px-6 max-w-screen-xl">
           <h2
             class="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white"
@@ -1107,17 +1014,13 @@
         </div>
       </section>
 
-      <section class="py-16 md:py-24">
+      <section class="py-16 md:py-24 bg-[#EDF2F4] dark:bg-slate-800">
         <div class="container mx-auto px-6 max-w-screen-xl">
           <div class="text-center max-w-3xl mx-auto mb-16">
             <h2
               class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white"
             >
-              Learn more about
-              <span
-                class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-600 dark:from-purple-400 dark:to-indigo-500"
-                >Gnowbe AI</span
-              >
+              Learn more about Gnowbe AI
             </h2>
             <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
               Discover how Gnowbe AI is transforming learning and training with
@@ -1128,7 +1031,7 @@
 
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div
-              class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl flex flex-col"
+              class="bg-white/80 dark:bg-slate-900/70 rounded-xl shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl flex flex-col backdrop-blur-sm"
             >
               <img
                 src="images/learn-more-about.jpg"
@@ -1159,7 +1062,7 @@
             </div>
 
             <div
-              class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl flex flex-col"
+              class="bg-white/80 dark:bg-slate-900/70 rounded-xl shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl flex flex-col backdrop-blur-sm"
             >
               <img
                 src="images/pre-launch.gif"
@@ -1193,7 +1096,7 @@
             </div>
 
             <div
-              class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl flex flex-col"
+              class="bg-white/80 dark:bg-slate-900/70 rounded-xl shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl flex flex-col backdrop-blur-sm"
             >
               <img
                 src="images/how-to-use.png"
@@ -1227,63 +1130,97 @@
           </div>
         </div>
       </section>
-      <section class="py-16 md:py-24">
-        <div class="container mx-auto px-6 text-center max-w-screen-xl">
-          <h2
-            class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white"
-          >
-            The Newest Addition to the Award-Winning<br />
-            <span
-              class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-600 dark:from-purple-400 dark:to-indigo-500"
-              >Gnowbe Platform</span
+      <section class="py-16 md:py-24 bg-[#EDF2F4] dark:bg-slate-800">
+        <div class="container mx-auto px-6 max-w-screen-xl">
+          <div class="text-center">
+            <h2
+              class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white"
             >
-          </h2>
-          <p
-            class="mt-4 text-lg max-w-3xl mx-auto text-gray-600 dark:text-gray-300"
-          >
-            Revolutionize your training and upskilling with Gnowbe AI: simply
-            set your objectives and audience, upload existing resources, and the
-            AI crafts customized, microlearning experiences rooted in
-            instructional design best practices—all while slashing development
-            time and keeping your content secure and scalable.
-          </p>
+              The Newest Addition to the Award-Winning<br />
+              Gnowbe Platform
+            </h2>
+            <p
+              class="mt-4 text-lg max-w-3xl mx-auto text-gray-600 dark:text-gray-300"
+            >
+              Revolutionize your training and upskilling with Gnowbe AI: simply
+              set your objectives and audience, upload existing resources, and
+              the AI crafts customized, microlearning experiences rooted in
+              instructional design best practices—all while slashing development
+              time and keeping your content secure and scalable.
+            </p>
 
-          <div
-            class="mt-12 flex justify-center items-center gap-x-10 gap-y-6 flex-wrap"
-          >
-            <img
-              src="images/badge-highperformer.png"
-              alt="High Performer Badge"
-              class="h-32 sm:h-40"
-            />
-            <img
-              src="images/AudienceResponse_EasiestToDoBusinessWith_EaseOfDoingBusinessWith.svg"
-              alt="Course Authoring Badge"
-              class="h-32 sm:h-40"
-            />
-            <img
-              src="images/AudienceResponse_UsersMostLikelyToRecommend_Nps.png"
-              alt="NPS Badge"
-              class="h-32 sm:h-40"
-            />
-            <img
-              src="images/badge-bestroi.svg"
-              alt="NPS Badge"
-              class="h-32 sm:h-40"
-            />
+            <div
+              class="mt-12 flex justify-center items-center gap-x-10 gap-y-6 flex-wrap"
+            >
+              <img
+                src="images/badge-highperformer.png"
+                alt="High Performer Badge"
+                class="h-32 sm:h-40"
+              />
+              <img
+                src="images/AudienceResponse_EasiestToDoBusinessWith_EaseOfDoingBusinessWith.svg"
+                alt="Course Authoring Badge"
+                class="h-32 sm:h-40"
+              />
+              <img
+                src="images/AudienceResponse_UsersMostLikelyToRecommend_Nps.png"
+                alt="NPS Badge"
+                class="h-32 sm:h-40"
+              />
+              <img
+                src="images/badge-bestroi.svg"
+                alt="NPS Badge"
+                class="h-32 sm:h-40"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="py-36 md:py-48 hero-gradient">
-        <div class="container mx-auto px-6 text-center max-w-screen-xl">
+      <section
+        class="relative bg-[#EDF2F4] dark:bg-slate-800 overflow-hidden py-36 md:py-48"
+      >
+        <div aria-hidden="true" class="absolute inset-0 z-0">
+          <div
+            class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 transform"
+          >
+            <div
+              class="h-[60rem] w-[60rem] rounded-full blur-3xl"
+              style="
+                background-image: radial-gradient(
+                  circle,
+                  rgba(167, 139, 250, 0.3),
+                  rgba(237, 242, 244, 0) 60%
+                );
+              "
+            ></div>
+          </div>
+          <div
+            class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 transform"
+          >
+            <div
+              class="h-[60rem] w-[60rem] rounded-full blur-3xl"
+              style="
+                background-image: radial-gradient(
+                  circle,
+                  rgba(253, 224, 71, 0.2),
+                  rgba(237, 242, 244, 0) 55%
+                );
+              "
+            ></div>
+          </div>
+        </div>
+
+        <div
+          class="relative z-10 container mx-auto px-6 text-center max-w-screen-xl"
+        >
           <h2
-            class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight"
+            class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight"
           >
             Ready to Revolutionize Your Training?
           </h2>
           <p
-            class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-gray-50 dark:text-gray-300 font-medium"
+            class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-slate-700 dark:text-slate-300 font-medium"
           >
             You've seen the power of AI-driven instructional design. Stop
             spending months on course creation and start delivering impactful,
@@ -1294,26 +1231,31 @@
             class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4"
           >
             <a
-              id="footer-book-demo"
+              id="hero-book-demo"
               href="https://www.gnowbe.com/chat-with-us"
-              class="bg-gnowbe-yellow hover:bg-gnowbe-yellow-darker text-black px-8 py-3 rounded-md font-semibold transition-colors text-lg w-full sm:w-auto"
-              >Request a Live Demo</a
+              class="bg-[#5EC3C5] hover:bg-[#53afb1] text-[#2b2b2b] px-8 py-3 rounded-md font-semibold transition-colors text-lg w-full sm:w-auto shadow-md"
+              >Book a Demo</a
             >
             <a
               id="footer-try-ai"
               href="https://web.gnowbe.com"
-              class="border border-white text-white px-8 py-3 rounded-md font-semibold hover:bg-white/20 transition-colors text-lg w-full sm:w-auto"
-              >Try Gnowbe AI Free</a
+              class="font-semibold leading-6 text-slate-800 dark:text-slate-200 group"
+              >Try Gnowbe AI Free
+              <span class="group-hover:ml-2 transition-all" aria-hidden="true"
+                >→</span
+              ></a
             >
           </div>
-          <p class="mt-6 text-sm text-white">
+          <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">
             Start today and get <strong>200 AI tasks on us</strong>. No credit
             card required.
           </p>
         </div>
       </section>
     </main>
-    <footer class="bg-white dark:bg-gray-900">
+    <footer
+      class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800"
+    >
       <div class="container mx-auto px-6 py-12 max-w-screen-xl">
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
           <div class="col-span-2 md:col-span-4 lg:col-span-1">
@@ -1541,7 +1483,7 @@
           </div>
         </div>
         <div
-          class="mt-12 border-t border-gray-200 dark:border-gray-700 pt-8 text-center text-sm text-gray-500 dark:text-gray-400"
+          class="mt-12 border-t border-slate-200 dark:border-slate-700 pt-8 text-center text-sm text-gray-500 dark:text-gray-400"
         >
           <p>© 2025 Gnowbe. All Rights Reserved.</p>
         </div>
