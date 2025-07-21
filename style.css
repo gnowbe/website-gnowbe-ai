@@ -47,9 +47,6 @@ html {
 }
 
 /* Custom hover underline for navbar and footer links */
-/* This targets links in the header's navigation divs, the mobile menu, and the footer,
-     while excluding any link styled as a button (containing 'bg-gnowbe-yellow' in its class).
-     This prevents the underline from appearing on the logo and "Book a Demo" buttons. */
 header nav div a:not([class*="bg-gnowbe-yellow"]),
 #mobile-menu a:not([class*="bg-gnowbe-yellow"]),
 footer a {
