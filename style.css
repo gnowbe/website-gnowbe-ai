@@ -38,8 +38,9 @@ html {
   width: 100%;
   overflow: hidden; /* Hides the overflowing content */
   position: relative;
-  height: 250px; /* Adjust height as needed */
+  height: 60px; /* Reduced height for less gap */
   display: flex;
+  margin-bottom: 1rem;
   align-items: center;
   border-radius: 0.75rem; /* rounded-lg */
   -webkit-mask-image: linear-gradient(
@@ -61,11 +62,21 @@ html {
 .marquee-content {
   display: flex; /* Lays out flag groups side-by-side */
   width: 200%; /* Twice the container width for seamless loop */
-  animation: marquee 7s linear infinite;
+  animation: marquee 10s linear infinite;
   animation-play-state: paused; /* Paused by default */
 }
 
-.marquee-container:hover .marquee-content {
+/* Modifier for slower animation speed */
+.marquee-slow .marquee-content {
+  animation-duration: 15s;
+}
+
+/* Modifier for reversed animation direction */
+.marquee-reverse .marquee-content {
+  animation-name: marquee-reverse;
+}
+
+.marquee-wrapper:hover .marquee-content {
   animation-play-state: running; /* Runs on hover */
 }
 
@@ -86,16 +97,21 @@ html {
   transition: transform 0.3s ease;
 }
 
-.marquee-container:hover .flag-img {
-  transform: scale(1.1);
-}
-
 @keyframes marquee {
   0% {
     transform: translateX(0%);
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
   }
 }
 
@@ -186,7 +202,7 @@ html {
 
   /* Responsive styles for the marquee */
   .marquee-container {
-    height: 150px; /* Reduced height for smaller screens */
+    height: 48px; /* Reduced height for smaller screens */
   }
 
   .flag-img {
