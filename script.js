@@ -5,7 +5,7 @@ tailwind.config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        sans: ["Noto Sans", "sans-serif"],
       },
       colors: {
         gnowbe: {
