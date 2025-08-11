@@ -153,33 +153,126 @@
   >
     <div
       id="cookie-consent-banner"
-      class="hidden fixed bottom-0 left-0 right-0 bg-gray-800 text-white p-4 z-50 flex flex-col sm:flex-row items-center justify-center gap-4"
+      x-data="{ view: 'main', analytics: false }"
+      class="hidden fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm"
     >
-      <p class="text-center sm:text-left">
-        We use cookies to understand site usage and improve your experience.
-        This includes personalizing content. For more information, see our
-        <a
-          href="https://www.gnowbe.com/privacy"
-          class="underline hover:text-gnowbe-yellow"
-          >Privacy Policy</a
-        >.
-      </p>
-      <div class="flex-shrink-0 flex gap-3">
-        <button
-          id="decline-cookies"
-          class="bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded"
-        >
-          Decline
-        </button>
-        <button
-          id="accept-cookies"
-          class="bg-[#5EC3C5] hover:bg-[#53afb1] text-[#2b2b2b] font-bold py-2 px-4 rounded"
-        >
-          Accept
-        </button>
-      </div>
-    </div>
+      <div
+        class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-lg m-4 w-full"
+      >
+        <div x-show="view === 'main'" x-transition>
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+            We Value Your Privacy
+          </h2>
+          <p class="mt-4 text-gray-600 dark:text-gray-300">
+            We use cookies to understand site usage and improve your experience.
+            This includes personalizing content. You can accept all cookies or
+            manage your preferences. For more information, see our
+            <a
+              href="https://www.gnowbe.com/privacy"
+              class="underline text-[#1B585E] hover:text-[#2E8F99] dark:text-[#2E8F99] dark:hover:text-white transition-colors"
+              >Privacy Policy</a
+            >.
+          </p>
+          <div
+            class="mt-8 flex flex-col-reverse sm:flex-row sm:justify-end gap-4"
+          >
+            <button
+              @click="view = 'preferences'"
+              class="w-full sm:w-auto bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-800 dark:text-gray-200 font-bold py-2.5 px-6 rounded-lg transition-colors"
+            >
+              Manage Cookies
+            </button>
+            <button
+              id="accept-cookies"
+              class="w-full sm:w-auto bg-[#5EC3C5] hover:bg-[#53afb1] text-[#2b2b2b] font-bold py-2.5 px-6 rounded-lg transition-colors"
+            >
+              Accept All
+            </button>
+          </div>
+        </div>
 
+        <div x-show="view === 'preferences'" x-cloak x-transition>
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+            Manage Your Preferences
+          </h2>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">
+            You can adjust your cookie settings below. Necessary cookies cannot
+            be disabled.
+          </p>
+          <div class="mt-6 space-y-4">
+            <div
+              class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg"
+            >
+              <div class="flex justify-between items-center">
+                <span class="font-semibold text-gray-700 dark:text-gray-200"
+                  >Necessary Cookies</span
+                >
+                <div
+                  class="relative inline-flex items-center h-6 rounded-full w-11 cursor-not-allowed"
+                >
+                  <input
+                    type="checkbox"
+                    class="w-11 h-6 rounded-full appearance-none bg-teal-600"
+                    checked
+                    disabled
+                  />
+                  <span
+                    class="absolute left-1 top-1 w-4 h-4 transform bg-white rounded-full transition-transform"
+                  ></span>
+                </div>
+              </div>
+              <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                These cookies are essential for the website to function and
+                cannot be switched off.
+              </p>
+            </div>
+            <div
+              class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg"
+            >
+              <div class="flex justify-between items-center">
+                <span class="font-semibold text-gray-700 dark:text-gray-200"
+                  >Analytics & Performance</span
+                >
+                <button
+                  type="button"
+                  class="relative inline-flex items-center h-6 rounded-full w-11"
+                  :class="analytics ? 'bg-teal-600' : 'bg-gray-300 dark:bg-gray-600'"
+                  @click="analytics = !analytics"
+                >
+                  <span class="sr-only"
+                    >Enable Analytics & Performance Cookies</span
+                  >
+                  <span
+                    class="absolute left-1 top-1 w-4 h-4 transform bg-white rounded-full transition-transform"
+                    :class="analytics ? 'translate-x-5' : 'translate-x-0'"
+                  ></span>
+                </button>
+              </div>
+              <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                These cookies allow us to count visits and traffic sources so we
+                can measure and improve the performance of our site.
+              </p>
+            </div>
+          </div>
+          <div class="mt-8 flex justify-end gap-4">
+            <button
+              onclick="
+            const analyticsEnabled = this.closest('[x-data]').__x.$data.analytics;
+            if (analyticsEnabled) {
+              document.getElementById('accept-cookies').click();
+            } else {
+              document.getElementById('decline-cookies').click();
+            }
+          "
+              class="bg-[#5EC3C5] hover:bg-[#53afb1] text-[#2b2b2b] font-bold py-2.5 px-6 rounded-lg transition-colors"
+            >
+              Save Preferences
+            </button>
+          </div>
+        </div>
+      </div>
+      <button id="decline-cookies" class="hidden"></button>
+    </div>
     <header
       x-data="{ open: false, dropdownOpen: false }"
       class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-40 shadow-sm"
@@ -577,12 +670,10 @@
             <a
               id="hero-explore-ai"
               href="https://web.gnowbe.com"
-              class="font-semibold leading-6 text-slate-800 dark:text-slate-200 group"
+              class="font-semibold leading-6 text-slate-800 dark:text-slate-200"
               >Explore Gnowbe AI
-              <span class="group-hover:ml-2 transition-all" aria-hidden="true"
-                >→</span
-              ></a
-            >
+              <span class="transition-all" aria-hidden="true">→</span>
+            </a>
           </div>
           <p class="mt-6 text-sm text-slate-700 dark:text-gray-400">
             Get <b>FREE</b> access to GNOWBE AI Agents today to complete
@@ -1844,12 +1935,10 @@
             <a
               id="footer-try-ai"
               href="https://web.gnowbe.com"
-              class="font-semibold leading-6 text-slate-800 dark:text-slate-200 group"
+              class="font-semibold leading-6 text-slate-800 dark:text-slate-200"
               >Try Gnowbe AI Free
-              <span class="group-hover:ml-2 transition-all" aria-hidden="true"
-                >→</span
-              ></a
-            >
+              <span class="transition-all" aria-hidden="true">→</span>
+            </a>
           </div>
           <p class="mt-6 text-sm text-gray-700 dark:text-gray-400">
             Start today and get <strong>200 AI tasks on us</strong>. No credit
