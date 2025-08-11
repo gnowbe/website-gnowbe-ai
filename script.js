@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // --- Cookie Consent Elements ---
   const cookieConsentBanner = document.getElementById("cookie-consent-banner");
   const acceptCookiesButton = document.getElementById("accept-cookies");
+  const rejectCookiesButton = document.getElementById("reject-cookies");
   const savePreferencesButton = document.getElementById(
     "save-preferences-button"
   );
@@ -76,6 +77,15 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.setItem("cookie_consent", "true");
       cookieConsentBanner.classList.add("hidden");
       initializeAnalytics();
+    });
+  }
+
+  // --- Reject All Cookies ---
+  if (rejectCookiesButton) {
+    rejectCookiesButton.addEventListener("click", function () {
+      localStorage.setItem("cookie_consent", "false");
+      cookieConsentBanner.classList.add("hidden");
+      console.log("Segment Analytics blocked due to user preference.");
     });
   }
 
