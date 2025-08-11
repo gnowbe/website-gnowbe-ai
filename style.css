@@ -205,3 +205,17 @@ footer a:hover {
   text-decoration-thickness: 2px;
   text-decoration-color: #1b585e;
 }
+
+/* --- Responsive Fix for Typing Animation --- */
+@media (max-width: 767px) {
+  .typing-text.animate-typing {
+    /* Allow text to wrap on multiple lines */
+    white-space: normal;
+
+    /* Reset animation properties so the text is visible by default */
+    width: auto;
+    overflow: visible;
+    border-right: none;
+    animation: none; /* Disable the typewriter and caret animations */
+  }
+}
