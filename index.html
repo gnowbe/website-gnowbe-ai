@@ -1,47 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gnowbe AI</title>
+    <title>AI for Learning | Gnowbe AI | Design Engaging Experiences</title>
 
     <meta
       name="description"
-      content="Gnowbe AI’s agents empower businesses to create, translate, and scale training instantly—no AI expertise needed. Discover our suite of tools for high-impact learning experiences."
+      content="For L&D leaders & expert creators. Gnowbe's AI agents transform your content into engaging learning experiences that drive results. Book your free demo today!"
     />
     <meta
       name="keywords"
-      content="AI training, instructional design, corporate training, microlearning, AI course creation, employee upskilling"
+      content="AI training platform, instructional design software, corporate training solution, microlearning creator, AI course creation tool, employee upskilling platform, learning experience design, enterprise training AI, multilingual training software, automated course development, training automation platform, Magic Creator AI, L&D technology, AI study buddy, LLM instructional design"
     />
+    <link rel="canonical" href="https://www.gnowbe.ai" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.gnowbe.com/ai" />
+    <meta property="og:url" content="https://www.gnowbe.ai" />
     <meta
       property="og:title"
-      content="Gnowbe AI: Smarter, Faster, Safer AI for Training & Design"
+      content="Gnowbe AI: The AI Platform for High-Impact Learning Experiences"
     />
     <meta
       property="og:description"
-      content="Gnowbe AI’s agents empower businesses to create, translate, and scale training instantly—no AI expertise needed."
+      content="Gnowbe's AI agents turn your content into engaging, effective learning experiences in minutes, not months."
     />
     <meta
       property="og:image"
-      content="https://www.gnowbe.com/og-image-gnowbe-ai.jpg"
+      content="https://www.gnowbe.ai/og-image-gnowbe-ai.jpg"
     />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://www.gnowbe.com/ai" />
     <meta
       property="twitter:title"
-      content="Gnowbe AI: Smarter, Faster, Safer AI for Training & Design"
+      content="Gnowbe AI: The AI Platform for High-Impact Learning Experiences"
     />
     <meta
       property="twitter:description"
-      content="Gnowbe AI’s agents empower businesses to create, translate, and scale training instantly—no AI expertise needed."
+      content="Gnowbe's AI agents turn your content into engaging, effective learning experiences in minutes, not months."
     />
     <meta
       property="twitter:image"
-      content="https://www.gnowbe.com/twitter-image-gnowbe-ai.jpg"
+      content="https://www.gnowbe.ai/twitter-image-gnowbe-ai.jpg"
     />
 
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -49,6 +50,10 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+    ></script>
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
@@ -61,81 +66,84 @@
       rel="stylesheet"
     />
 
-    <script>
-      !(function () {
-        var analytics = (window.analytics = window.analytics || []);
-        if (!analytics.initialize)
-          if (analytics.invoked)
-            window.console &&
-              console.error &&
-              console.error("Segment snippet included twice.");
-          else {
-            analytics.invoked = !0;
-            analytics.methods = [
-              "trackSubmit",
-              "trackClick",
-              "trackLink",
-              "trackForm",
-              "pageview",
-              "identify",
-              "reset",
-              "group",
-              "track",
-              "ready",
-              "alias",
-              "debug",
-              "page",
-              "once",
-              "off",
-              "on",
-              "addSourceMiddleware",
-              "addIntegrationMiddleware",
-              "setAnonymousId",
-              "addDestinationMiddleware",
-            ];
-            analytics.factory = function (e) {
-              return function () {
-                var t = Array.prototype.slice.call(arguments);
-                t.unshift(e);
-                analytics.push(t);
-                return analytics;
-              };
-            };
-            for (var e = 0; e < analytics.methods.length; e++) {
-              var key = analytics.methods[e];
-              analytics[key] = analytics.factory(key);
-            }
-            analytics.load = function (key, e) {
-              var t = document.createElement("script");
-              t.type = "text/javascript";
-              t.async = !0;
-              t.src =
-                "https://cdn.segment.com/analytics.js/v1/" +
-                key +
-                "/analytics.min.js";
-              var n = document.getElementsByTagName("script")[0];
-              n.parentNode.insertBefore(t, n);
-              analytics._loadOptions = e;
-            };
-            analytics._writeKey = "uC8lzaUyjmypXHvHqVZenGjApDyIIKck";
-            analytics.SNIPPET_VERSION = "4.16.1";
-            // Note: analytics.load() is called in script.js after consent
-          }
-      })();
-    </script>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebSite",
+        "@type": "Product",
         "name": "Gnowbe AI",
-        "url": "https://www.gnowbe.com/ai",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://www.gnowbe.com/search?q={search_term_string}",
-          "query-input": "required name=search_term_string"
+        "description": "An AI-powered platform designed for L&D professionals and expert creators to build and scale effective learning experiences in minutes.",
+        "brand": {
+          "@type": "Organization",
+          "name": "Gnowbe",
+          "url": "https://www.gnowbe.com",
+          "logo": "https://www.gnowbe.com/your-logo-url.png"
+        },
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web-based",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Free trial with 200 AI tasks included. No credit card required."
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "156"
+        },
+        "featureList": [
+          "AI Magic Creator",
+          "AI-Powered Translation (70+ Languages)",
+          "AI Study Buddy for Learners",
+          "AI Curator Coach for Authors",
+          "Enterprise-Grade Security"
+        ],
+        "mainEntity": {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is my data and content secure when using Magic Creator?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, your privacy and security are our top priorities. Your uploaded materials are processed in a secure, sandboxed environment and are never used to train AI models. Once content generation is complete, your files are not stored or retained. Our platform adheres to strict global standards, including GDPR, to ensure your proprietary information is protected at every stage."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What powers Gnowbe AI Magic Creator?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Gnowbe AI Magic Creator uses a custom system that combines advanced large language models (LLMs) from leading providers with Gnowbe’s proprietary microlearning framework. It's not a generic chatbot; it's an intelligent system specifically optimized to apply best practices in instructional design, helping you save over 80% of the time and resources typically required to create high-quality training."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is Gnowbe AI different from other AI tools like ChatGPT?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Unlike general-purpose AI tools, Gnowbe AI is purpose-built for creating interactive, structured microlearning. It provides a guided framework that organizes content into engaging, digestible experiences based on proven instructional design principles. This ensures your training is not just generated quickly, but is also effective and impactful."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Gnowbe AI support multiple languages?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Gnowbe AI can generate content in over 35 languages. Additionally, our separate Automated Translation tool can translate your finished learning experiences into over 70 languages, ensuring accessibility for a global audience."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can multiple team members collaborate using Gnowbe AI?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Gnowbe is a fully collaborative platform. It enables teams to work together seamlessly to develop, edit, review, and manage learning content."
+              }
+            }
+          ]
         }
       }
     </script>
@@ -424,7 +432,13 @@
         </div>
       </nav>
 
-      <div id="mobile-menu" x-show="open" x-transition class="lg:hidden">
+      <div
+        id="mobile-menu"
+        x-show="open"
+        x-transition
+        class="lg:hidden"
+        x-cloak
+      >
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <div x-data="{ open: false }" class="w-full">
             <button
@@ -445,7 +459,7 @@
                 ></path>
               </svg>
             </button>
-            <div x-show="open" class="pl-4 mt-1 space-y-1">
+            <div x-show="open" class="pl-4 mt-1 space-y-1" x-cloak>
               <a
                 href="https://www.gnowbe.com/industries/retail"
                 class="block px-3 py-2 rounded-md text-base font-medium text-gray-500 dark:text-gray-400"
@@ -506,6 +520,7 @@
         </div>
       </div>
     </header>
+
     <main>
       <section class="relative bg-[#EDF2F4] dark:bg-[#1e293b] overflow-hidden">
         <div aria-hidden="true" class="absolute inset-0 z-0">
@@ -513,18 +528,29 @@
             class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 transform"
           >
             <div
-              class="h-[60rem] w-[60rem] rounded-full blur-3xl animate-gradient"
+              class="h-[60rem] w-[60rem] rounded-full blur-3xl"
+              style="
+                background: linear-gradient(
+                  to top right,
+                  rgba(132, 204, 22, 0.4),
+                  rgba(6, 182, 212, 0.4)
+                );
+              "
             ></div>
           </div>
           <div
             class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 transform"
           >
             <div
-              class="h-[60rem] w-[60rem] rounded-full blur-3xl animate-gradient"
+              class="h-[60rem] w-[60rem] rounded-full blur-3xl"
+              style="
+                background: linear-gradient(
+                  to bottom right,
+                  rgba(217, 70, 239, 0.4),
+                  rgba(249, 115, 22, 0.4)
+                );
+              "
             ></div>
-          </div>
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="h-[30rem] w-[30rem] animate-gradient-accent"></div>
           </div>
         </div>
         <div
@@ -533,8 +559,7 @@
           <h1
             class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl"
           >
-            Turn Your Expertise into<br />
-            Impact, Instantly.
+            Turn Your Expertise into Impact, Instantly.
           </h1>
           <p class="mt-6 text-lg leading-8 text-slate-700 dark:text-slate-300">
             For L&D leaders and expert creators, Gnowbe AI is the specialized
@@ -604,25 +629,25 @@
                   <ul class="mt-6 space-y-6">
                     <li class="flex items-start">
                       <span class="text-lg text-gray-700 dark:text-gray-300"
-                        >Save Weeks of Work: For L&D teams, this means faster
-                        deployment. For creators, it means scaling your
-                        business. Upload any content and watch our AI agent
-                        build an entire experience for you.</span
+                        ><strong>Save Weeks of Work:</strong> For L&D teams,
+                        this means faster deployment. For creators, it means
+                        scaling your business. Upload any content and watch our
+                        AI agent build an entire experience for you.</span
                       >
                     </li>
                     <li class="flex items-start">
                       <span class="text-lg text-gray-700 dark:text-gray-300"
-                        >Launch with Credibility: Our AI is trained in
-                        instructional design, ensuring your content is not just
-                        fast, but pedagogically sound, engaging, and
+                        ><strong>Launch with Credibility:</strong> Our AI is
+                        trained in instructional design, ensuring your content
+                        is not just fast, but pedagogically sound, engaging, and
                         effective.</span
                       >
                     </li>
                     <li class="flex items-start">
                       <span class="text-lg text-gray-700 dark:text-gray-300"
-                        >No Expertise Needed: The intuitive interface means
-                        anyone can design professional-grade learning without
-                        complex prompt engineering.</span
+                        ><strong>No Expertise Needed:</strong> The intuitive
+                        interface means anyone can design professional-grade
+                        learning without complex prompt engineering.</span
                       >
                     </li>
                   </ul>
@@ -723,16 +748,16 @@
                   <ul class="mt-6 space-y-6">
                     <li>
                       <span class="text-lg text-gray-700 dark:text-gray-300"
-                        >Scale Globally, Instantly: Translate your content into
-                        over 70 languages with a single click, without
-                        sacrificing instructional quality.</span
+                        ><strong>Scale Globally, Instantly:</strong> Translate
+                        your content into over 70 languages with a single click,
+                        without sacrificing instructional quality.</span
                       >
                     </li>
                     <li>
                       <span class="text-lg text-gray-700 dark:text-gray-300"
-                        >Ensure a Consistent Message: Deliver a unified learning
-                        experience to all your teams and clients, no matter
-                        where they are.</span
+                        ><strong>Ensure a Consistent Message:</strong> Deliver a
+                        unified learning experience to all your teams and
+                        clients, no matter where they are.</span
                       >
                     </li>
                   </ul>
@@ -744,54 +769,54 @@
                         <div class="marquee-group">
                           <img
                             src="https://flagcdn.com/w80/us.png"
-                            alt="USA Flag"
+                            alt="Flag of the United States"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/de.png"
-                            alt="Germany Flag"
+                            alt="Flag of Germany"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/jp.png"
-                            alt="Japan Flag"
+                            alt="Flag of Japan"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/fr.png"
-                            alt="France Flag"
+                            alt="Flag of France"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/br.png"
-                            alt="Brazil Flag"
+                            alt="Flag of Brazil"
                             class="flag-img"
                           />
                         </div>
                         <div class="marquee-group">
                           <img
                             src="https://flagcdn.com/w80/us.png"
-                            alt="USA Flag"
+                            alt="Flag of the United States"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/de.png"
-                            alt="Germany Flag"
+                            alt="Flag of Germany"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/jp.png"
-                            alt="Japan Flag"
+                            alt="Flag of Japan"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/fr.png"
-                            alt="France Flag"
+                            alt="Flag of France"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/br.png"
-                            alt="Brazil Flag"
+                            alt="Flag of Brazil"
                             class="flag-img"
                           />
                         </div>
@@ -802,54 +827,54 @@
                         <div class="marquee-group">
                           <img
                             src="https://flagcdn.com/w80/cn.png"
-                            alt="China Flag"
+                            alt="Flag of China"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/in.png"
-                            alt="India Flag"
+                            alt="Flag of India"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/es.png"
-                            alt="Spain Flag"
+                            alt="Flag of Spain"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/ru.png"
-                            alt="Russia Flag"
+                            alt="Flag of Russia"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/it.png"
-                            alt="Italy Flag"
+                            alt="Flag of Italy"
                             class="flag-img"
                           />
                         </div>
                         <div class="marquee-group">
                           <img
                             src="https://flagcdn.com/w80/cn.png"
-                            alt="China Flag"
+                            alt="Flag of China"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/in.png"
-                            alt="India Flag"
+                            alt="Flag of India"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/es.png"
-                            alt="Spain Flag"
+                            alt="Flag of Spain"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/ru.png"
-                            alt="Russia Flag"
+                            alt="Flag of Russia"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/it.png"
-                            alt="Italy Flag"
+                            alt="Flag of Italy"
                             class="flag-img"
                           />
                         </div>
@@ -860,54 +885,54 @@
                         <div class="marquee-group">
                           <img
                             src="https://flagcdn.com/w80/gb.png"
-                            alt="UK Flag"
+                            alt="Flag of the United Kingdom"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/ca.png"
-                            alt="Canada Flag"
+                            alt="Flag of Canada"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/au.png"
-                            alt="Australia Flag"
+                            alt="Flag of Australia"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/kr.png"
-                            alt="South Korea Flag"
+                            alt="Flag of South Korea"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/mx.png"
-                            alt="Mexico Flag"
+                            alt="Flag of Mexico"
                             class="flag-img"
                           />
                         </div>
                         <div class="marquee-group">
                           <img
                             src="https://flagcdn.com/w80/gb.png"
-                            alt="UK Flag"
+                            alt="Flag of the United Kingdom"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/ca.png"
-                            alt="Canada Flag"
+                            alt="Flag of Canada"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/au.png"
-                            alt="Australia Flag"
+                            alt="Flag of Australia"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/kr.png"
-                            alt="South Korea Flag"
+                            alt="Flag of South Korea"
                             class="flag-img"
                           />
                           <img
                             src="https://flagcdn.com/w80/mx.png"
-                            alt="Mexico Flag"
+                            alt="Flag of Mexico"
                             class="flag-img"
                           />
                         </div>
@@ -939,16 +964,18 @@
                   <ul class="mt-6 space-y-6">
                     <li class="flex items-start">
                       <span class="text-lg text-gray-700 dark:text-gray-300"
-                        >Support Learners 24/7: Give every learner an AI Study
-                        Buddy that answers questions and provides instant,
-                        personalized feedback, deepening understanding.</span
+                        ><strong>Support Learners 24/7:</strong> Give every
+                        learner an AI Study Buddy that answers questions and
+                        provides instant, personalized feedback, deepening
+                        understanding.</span
                       >
                     </li>
                     <li class="flex items-start">
                       <span class="text-lg text-gray-700 dark:text-gray-300"
-                        >Improve Your Content: Let the AI Curator Coach analyze
-                        your learning experience and suggest enhancements to
-                        boost engagement and outcomes.</span
+                        ><strong>Improve Your Content:</strong> Let the AI
+                        Curator Coach analyze your learning experience and
+                        suggest enhancements to boost engagement and
+                        outcomes.</span
                       >
                     </li>
                   </ul>
@@ -1040,6 +1067,18 @@
                 class="p-8 bg-white/80 dark:bg-slate-900/70 rounded-2xl shadow-md backdrop-blur-sm"
               >
                 <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
+                  Built on Proven Pedagogy
+                </h3>
+                <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">
+                  Our AI is built on proven behavioral science to create
+                  learning that sticks, drives measurable performance, and
+                  boosts your professional credibility.
+                </p>
+              </div>
+              <div
+                class="p-8 bg-white/80 dark:bg-slate-900/70 rounded-2xl shadow-md backdrop-blur-sm"
+              >
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
                   Engage Everyone, Everywhere
                 </h3>
                 <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">
@@ -1048,20 +1087,108 @@
                   audience.
                 </p>
               </div>
-              <div
-                class="p-8 bg-white/80 dark:bg-slate-900/70 rounded-2xl shadow-md backdrop-blur-sm"
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="roi-calculator"
+        class="py-16 md:py-24 bg-white dark:bg-slate-900"
+      >
+        <div class="container mx-auto px-6 max-w-screen-xl">
+          <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div class="text-center md:text-left">
+              <h2
+                class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white"
               >
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
-                  Mobile-First & Social Learning
+                Calculate Your ROI with Gnowbe AI
+              </h2>
+              <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+                Stop guessing and start quantifying. See the real-world savings
+                in time and money when you switch to Gnowbe AI. Our calculator
+                makes it easy to visualize the business impact of accelerating
+                your learning design process.
+              </p>
+              <div class="mt-8">
+                <a
+                  href="https://roi.gnowbe.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-[#FFB606] hover:bg-amber-500 text-black px-8 py-3 rounded-md font-semibold transition-colors text-lg inline-block shadow-md"
+                >
+                  Calculate Your Savings Now
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-center">
+              <div
+                class="bg-cyan-50/60 dark:bg-slate-800/80 border border-cyan-200 dark:border-cyan-700 rounded-2xl p-6 sm:p-8 shadow-lg w-full max-w-xl transition-all duration-300 hover:shadow-cyan-500/10 hover:border-cyan-300"
+              >
+                <h3
+                  class="text-xl sm:text-2xl font-bold text-cyan-900 dark:text-cyan-100"
+                >
+                  Amplify Your Team's Productivity with Gnowbe AI Agents
                 </h3>
-                <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">
-                  Accessible anytime, anywhere, fostering peer collaboration.
+                <p class="mt-3 text-base text-slate-700 dark:text-slate-300">
+                  Gnowbe AI Agents accelerate training design by automatically
+                  completing the complex tasks of storyboarding, designing,
+                  digitizing and delivering high quality learning experiences so
+                  your team can focus on what matters most.
                 </p>
+                <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div
+                    class="bg-white/70 dark:bg-slate-700/50 rounded-xl p-4 text-center border border-slate-200 dark:border-slate-600"
+                  >
+                    <p
+                      class="text-sm font-medium text-slate-600 dark:text-slate-400"
+                    >
+                      Time Reduction
+                    </p>
+                    <p
+                      class="mt-1 text-4xl font-bold text-cyan-600 dark:text-cyan-400"
+                    >
+                      80%
+                    </p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">
+                      Less time spent
+                    </p>
+                  </div>
+                  <div
+                    class="bg-white/70 dark:bg-slate-700/50 rounded-xl p-4 text-center border border-slate-200 dark:border-slate-600"
+                  >
+                    <p
+                      class="text-sm font-medium text-slate-600 dark:text-slate-400"
+                    >
+                      Content Quality
+                    </p>
+                    <div class="flex justify-center items-center h-12 mt-1">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-8 w-8 text-cyan-600 dark:text-cyan-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="3"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M7 11l5-5m0 0l5 5m-5-5v12"
+                        />
+                      </svg>
+                    </div>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">
+                      Higher engagement
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
       <section class="py-16 md:py-24 bg-[#EDF2F4] dark:bg-[#1e293b]">
         <div class="container mx-auto px-6 max-w-screen-xl">
           <div class="text-center max-w-4xl mx-auto">
@@ -1141,7 +1268,7 @@
               <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">
                 Develop and deploy learning up to 90% faster. Automate the
                 entire design process—from research to final polish—and reclaim
-                weeks of valuable time
+                weeks of valuable time.
               </p>
             </div>
             <div
@@ -1253,7 +1380,7 @@
             >
               <img
                 src="images/learn-more-about.jpg"
-                alt="Abstract image representing AI"
+                alt="Colorful abstract waves representing the flow of AI data."
                 class="w-full h-56 object-cover"
               />
 
@@ -1284,7 +1411,7 @@
             >
               <img
                 src="images/pre-launch.gif"
-                alt="Image of data charts and graphs"
+                alt="Animated GIF showing data charts and graphs, representing AI analytics."
                 class="w-full h-56 object-cover"
               />
 
@@ -1318,7 +1445,7 @@
             >
               <img
                 src="images/how-to-use.png"
-                alt="Person using a mobile phone for learning"
+                alt="A person's hand holding a mobile phone displaying a Gnowbe learning module."
                 class="w-full h-56 object-cover"
               />
 
@@ -1372,24 +1499,275 @@
             >
               <img
                 src="images/badge-highperformer.png"
-                alt="High Performer Badge"
+                alt="G2 High Performer badge"
                 class="h-32 sm:h-40"
               />
               <img
                 src="images/AudienceResponse_EasiestToDoBusinessWith_EaseOfDoingBusinessWith.svg"
-                alt="Course Authoring Badge"
+                alt="G2 Easiest To Do Business With badge"
                 class="h-32 sm:h-40"
               />
               <img
                 src="images/AudienceResponse_UsersMostLikelyToRecommend_Nps.png"
-                alt="NPS Badge"
+                alt="G2 Users Most Likely to Recommend badge"
                 class="h-32 sm:h-40"
               />
               <img
                 src="images/badge-bestroi.svg"
-                alt="NPS Badge"
+                alt="G2 Best ROI badge"
                 class="h-32 sm:h-40"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="py-16 md:py-24 bg-[#EDF2F4] dark:bg-[#1e293b]">
+        <div class="container mx-auto px-6 max-w-4xl">
+          <div class="text-center mb-12">
+            <h2
+              class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white"
+            >
+              Frequently Asked Questions
+            </h2>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+              Have questions? We've got answers. If you don't see your question
+              here, feel free to contact us.
+            </p>
+          </div>
+          <div class="space-y-4">
+            <div
+              x-data="{ open: false }"
+              class="bg-white dark:bg-slate-900/70 p-6 rounded-lg shadow-md"
+            >
+              <button
+                @click="open = !open"
+                class="w-full flex justify-between items-center text-left space-x-4"
+              >
+                <span
+                  class="text-xl font-semibold text-gray-800 dark:text-gray-100"
+                  >Is my data and content secure?</span
+                >
+                <svg
+                  class="h-6 w-6 transform transition-transform text-gray-500 flex-shrink-0"
+                  :class="{'rotate-180': open}"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                x-show="open"
+                x-collapse
+                class="mt-4 text-gray-600 dark:text-gray-300 space-y-2"
+              >
+                <p>
+                  <strong>Yes, absolutely.</strong> At Gnowbe, we prioritize
+                  your privacy and the security of your data above all else.
+                  Your proprietary information is handled with the utmost care
+                  and confidentiality.
+                </p>
+                <ul class="list-disc list-inside space-y-1">
+                  <li>
+                    <strong>NO Data Used for Training Models:</strong> Your
+                    uploaded materials are processed exclusively to create your
+                    learning modules. None of this data is stored or used to
+                    train AI models.
+                  </li>
+                  <li>
+                    <strong>Confidential Processing:</strong> All files are
+                    processed securely in a sandboxed environment and cannot be
+                    accessed or reused by external systems.
+                  </li>
+                  <li>
+                    <strong>Compliance with Global Standards:</strong> We adhere
+                    to strict industry standards, including GDPR. Your sensitive
+                    information is protected at every stage.
+                  </li>
+                  <li>
+                    <strong>Transparency and Control:</strong> Once the AI has
+                    completed its task, your files are not stored or retained in
+                    any way, ensuring complete peace of mind.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              x-data="{ open: false }"
+              class="bg-white dark:bg-slate-900/70 p-6 rounded-lg shadow-md"
+            >
+              <button
+                @click="open = !open"
+                class="w-full flex justify-between items-center text-left space-x-4"
+              >
+                <span
+                  class="text-xl font-semibold text-gray-800 dark:text-gray-100"
+                  >What powers Gnowbe AI Magic Creator?</span
+                >
+                <svg
+                  class="h-6 w-6 transform transition-transform text-gray-500 flex-shrink-0"
+                  :class="{'rotate-180': open}"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                x-show="open"
+                x-collapse
+                class="mt-4 text-gray-600 dark:text-gray-300"
+              >
+                <p>
+                  Gnowbe AI Magic Creator leverages a combination of advanced AI
+                  models from leading providers like OpenAI, Google, and
+                  Anthropic. However, it’s not just a generic AI chatbot—we’ve
+                  built a customized system that’s optimized specifically for
+                  microlearning and structured content design. It automatically
+                  applies best practices in instructional design, saving you
+                  over 80% of the time and resources needed to create
+                  high-quality learning experiences.
+                </p>
+              </div>
+            </div>
+            <div
+              x-data="{ open: false }"
+              class="bg-white dark:bg-slate-900/70 p-6 rounded-lg shadow-md"
+            >
+              <button
+                @click="open = !open"
+                class="w-full flex justify-between items-center text-left space-x-4"
+              >
+                <span
+                  class="text-xl font-semibold text-gray-800 dark:text-gray-100"
+                  >How is it different from other AI tools?</span
+                >
+                <svg
+                  class="h-6 w-6 transform transition-transform text-gray-500 flex-shrink-0"
+                  :class="{'rotate-180': open}"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                x-show="open"
+                x-collapse
+                class="mt-4 text-gray-600 dark:text-gray-300"
+              >
+                <p>
+                  Unlike traditional AI content generators, Gnowbe AI Magic
+                  Creator is purpose-built for interactive microlearning. It
+                  provides a structured framework that ensures learning content
+                  is organized into engaging, digestible experiences, and its
+                  intelligent flow aligns with best practices in instructional
+                  design.
+                </p>
+              </div>
+            </div>
+            <div
+              x-data="{ open: false }"
+              class="bg-white dark:bg-slate-900/70 p-6 rounded-lg shadow-md"
+            >
+              <button
+                @click="open = !open"
+                class="w-full flex justify-between items-center text-left space-x-4"
+              >
+                <span
+                  class="text-xl font-semibold text-gray-800 dark:text-gray-100"
+                  >Can I enhance the AI-generated content?</span
+                >
+                <svg
+                  class="h-6 w-6 transform transition-transform text-gray-500 flex-shrink-0"
+                  :class="{'rotate-180': open}"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                x-show="open"
+                x-collapse
+                class="mt-4 text-gray-600 dark:text-gray-300"
+              >
+                <p>
+                  Yes. While the AI handles the initial generation, you can
+                  enrich your learning experiences by uploading additional
+                  resources. We support a wide variety of file formats including
+                  documents (PDF, TXT), videos (MP4, MOV), audio (MP3, WAV), and
+                  images (JPG, PNG, WEBP), up to 10 files (20MB each) per
+                  creation.
+                </p>
+              </div>
+            </div>
+            <div
+              x-data="{ open: false }"
+              class="bg-white dark:bg-slate-900/70 p-6 rounded-lg shadow-md"
+            >
+              <button
+                @click="open = !open"
+                class="w-full flex justify-between items-center text-left space-x-4"
+              >
+                <span
+                  class="text-xl font-semibold text-gray-800 dark:text-gray-100"
+                  >Does Gnowbe AI support multiple languages?</span
+                >
+                <svg
+                  class="h-6 w-6 transform transition-transform text-gray-500 flex-shrink-0"
+                  :class="{'rotate-180': open}"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                x-show="open"
+                x-collapse
+                class="mt-4 text-gray-600 dark:text-gray-300"
+              >
+                <p>
+                  Yes! Gnowbe AI can generate content in over 35 languages,
+                  including Arabic, Chinese (Simplified), French, German,
+                  Japanese, Spanish, and more. Additionally, our separate
+                  Automated Translation tool can translate your finished
+                  learning experiences into over 70 languages, ensuring
+                  accessibility for a global audience.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -1403,14 +1781,28 @@
             class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 transform"
           >
             <div
-              class="h-[60rem] w-[60rem] rounded-full blur-3xl animate-gradient"
+              class="h-[60rem] w-[60rem] rounded-full blur-3xl"
+              style="
+                background: linear-gradient(
+                  to top right,
+                  rgba(132, 204, 22, 0.4),
+                  rgba(6, 182, 212, 0.4)
+                );
+              "
             ></div>
           </div>
           <div
             class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 transform"
           >
             <div
-              class="h-[60rem] w-[60rem] rounded-full blur-3xl animate-gradient"
+              class="h-[60rem] w-[60rem] rounded-full blur-3xl"
+              style="
+                background: linear-gradient(
+                  to bottom right,
+                  rgba(217, 70, 239, 0.4),
+                  rgba(249, 115, 22, 0.4)
+                );
+              "
             ></div>
           </div>
         </div>
@@ -1421,21 +1813,21 @@
           <h2
             class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight"
           >
-            Ready to Revolutionize Your Training?
+            Ready to Design Better Learning, Faster?
           </h2>
           <p
             class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-slate-700 dark:text-slate-300 font-medium"
           >
-            You've seen the power of AI-driven instructional design. Stop
-            spending months on course creation and start delivering impactful,
-            engaging training in minutes.
+            You've seen what a specialized AI can do. Stop letting content
+            design be a bottleneck. Start delivering high-impact learning that
+            drives business results and builds your brand.
           </p>
 
           <div
             class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4"
           >
             <a
-              id="hero-book-demo"
+              id="footer-book-demo"
               href="https://www.gnowbe.com/chat-with-us"
               class="bg-[#5EC3C5] hover:bg-[#53afb1] text-[#2b2b2b] px-8 py-3 rounded-md font-semibold transition-colors text-lg w-full sm:w-auto shadow-md"
               >Book a Demo</a
@@ -1522,12 +1914,28 @@
             </a>
             <div class="mt-6 flex items-start space-x-2">
               <div>
-                <img src="images/Light GDPR.svg" class="block dark:hidden" />
-                <img src="images/Dark-GDPR.svg" class="hidden dark:block" />
+                <img
+                  src="images/Light GDPR.svg"
+                  class="block dark:hidden"
+                  alt="GDPR Compliant Badge"
+                />
+                <img
+                  src="images/Dark-GDPR.svg"
+                  class="hidden dark:block"
+                  alt="GDPR Compliant Badge"
+                />
               </div>
               <div>
-                <img src="images/Light CCPA.svg" class="block dark:hidden" />
-                <img src="images/Dark-CCPA.svg" class="hidden dark:block" />
+                <img
+                  src="images/Light CCPA.svg"
+                  class="block dark:hidden"
+                  alt="CCPA Compliant Badge"
+                />
+                <img
+                  src="images/Dark-CCPA.svg"
+                  class="hidden dark:block"
+                  alt="CCPA Compliant Badge"
+                />
               </div>
             </div>
             <div class="mt-6 flex items-center space-x-5">
@@ -1693,5 +2101,7 @@
         </div>
       </div>
     </footer>
+
+    <script src="script.js" defer></script>
   </body>
 </html>

@@ -9,16 +9,43 @@ html {
   border-radius: 2px;
 }
 
+/* --- Typography --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Noto Serif", serif;
+  /* Apply the animated gradient background */
+  background: linear-gradient(
+    90deg,
+    #84cc16,
+    #06b6d4,
+    #d946ef,
+    #f97316,
+    #84cc16
+  );
+  background-size: 200% auto;
+  /* Clip the background to the text */
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Make the text transparent to show the gradient */
+  color: transparent;
+  /* Apply the animation */
+  animation: gradient-move 10s linear infinite;
+}
+
 /* --- Animations --- */
 @keyframes gradient-move {
   0% {
-    background-position: 0% 0%;
+    background-position: 0% 50%;
   }
   50% {
-    background-position: 100% 100%;
+    background-position: 100% 50%;
   }
   100% {
-    background-position: 0% 0%;
+    background-position: 0% 50%;
   }
 }
 
@@ -85,10 +112,10 @@ html {
 .animate-gradient {
   background-image: radial-gradient(
     circle,
-    rgba(17, 123, 180, 0.3),
-    /* Inspire Blue */ rgba(167, 139, 250, 0.3),
-    /* Original Purple */ rgba(127, 54, 193, 0.3),
-    /* Share Purple */ rgba(237, 242, 244, 0) 80%
+    rgba(132, 204, 22, 0.3),
+    rgba(6, 182, 212, 0.3),
+    rgba(217, 70, 239, 0.2),
+    rgba(249, 115, 22, 0) 80%
   );
   background-size: 400% 400%;
   animation: gradient-move 15s infinite ease-in-out;
@@ -255,43 +282,5 @@ footer a:hover {
   text-decoration-color: #1b585e;
 }
 
-.dark header nav div a:not([class*="bg-gnowbe-yellow"]):hover,
-.dark #mobile-menu a:not([class*="bg-gnowbe-yellow"]):hover,
-.dark footer a:hover {
-  text-decoration-color: #2e8f99;
-}
-
-/* --- Responsive Design --- */
-@media (max-width: 768px) {
-  .video-container {
-    position: relative !important;
-    width: 100% !important;
-    max-width: 280px !important;
-    height: auto !important;
-    margin: 0 auto 20px auto !important;
-  }
-
-  .video-container video {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: cover !important;
-  }
-
-  .marquee-container {
-    height: 48px;
-  }
-
-  .flag-img {
-    width: 48px;
-    height: 36px;
-  }
-}
-
-@media (max-width: 420px) {
-  .chat-bubble {
-    padding: 1rem;
-  }
-  .typing-text {
-    font-size: 0.75rem;
-  }
+.dark header nav div a:not([class*="bg-gnowbe-yellow"]):
 }
