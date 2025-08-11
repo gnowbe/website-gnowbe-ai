@@ -86,78 +86,6 @@ h6 {
   }
 }
 
-/* --- Utility & Custom Component Styles --- */
-.badge-clip {
-  clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0 88%);
-}
-
-.text-shadow {
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-/* --- Gradients --- */
-.hero-gradient {
-  background: #8e4bb3;
-  background: linear-gradient(
-    270deg,
-    rgba(142, 75, 179, 1) 0%,
-    rgba(151, 51, 238, 1) 100%
-  );
-}
-
-.dark .hero-gradient {
-  background: linear-gradient(270deg, #371d47 0%, #4f1aa6 100%);
-}
-
-.animate-gradient {
-  background-image: radial-gradient(
-    circle,
-    rgba(132, 204, 22, 0.3),
-    rgba(6, 182, 212, 0.3),
-    rgba(217, 70, 239, 0.2),
-    rgba(249, 115, 22, 0) 80%
-  );
-  background-size: 400% 400%;
-  animation: gradient-move 15s infinite ease-in-out;
-}
-.glass-effect {
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-/* Add this new keyframe animation */
-@keyframes pulse-glow {
-  0%,
-  100% {
-    opacity: 0.2;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-.glass-panel {
-  background-color: rgba(255, 255, 255, 0.4); /* Increased transparency */
-  -webkit-backdrop-filter: blur(16px); /* Stronger blur */
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-}
-
-.dark .glass-panel {
-  background-color: rgba(45, 55, 72, 0.4); /* Dark mode equivalent */
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-/* Add this new class for the accent gradient */
-.animate-gradient-accent {
-  background-image: radial-gradient(
-    circle,
-    rgba(127, 54, 193, 1),
-    /* #7F36C1 */ rgba(127, 54, 193, 0) 60%
-  );
-  animation: pulse-glow 9s infinite ease-in-out;
-}
 /* --- Marquee (Language Flags) --- */
 .marquee-container {
   width: 100%;
@@ -280,7 +208,4 @@ footer a:hover {
   text-underline-offset: 4px;
   text-decoration-thickness: 2px;
   text-decoration-color: #1b585e;
-}
-
-.dark header nav div a:not([class*="bg-gnowbe-yellow"]):
 }
