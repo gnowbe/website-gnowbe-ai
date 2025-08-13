@@ -1,33 +1,11 @@
-// --- 1. TAILWIND CSS CONFIGURATION ---
-tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ["Noto Sans", "sans-serif"],
-      },
-      colors: {
-        gnowbe: {
-          red: "#B41F24",
-          yellow: "#FFB606",
-          "yellow-darker": "#EAA800",
-          purple: "#935FEE",
-          "purple-darker": "#814EE5",
-          "purple-light": "#A77CFF",
-        },
-      },
-    },
-  },
-};
-
-// --- 2. THEME TOGGLE ---
+// -- Theme Toggle Functionality --
 function toggleTheme() {
   const html = document.documentElement;
   const isDark = html.classList.toggle("dark");
   localStorage.setItem("theme", isDark ? "dark" : "light");
 }
 
-// --- 3. PAGE INITIALIZATION ---
+// Page Initialization
 function initPage() {
   // Apply saved theme or detect system preference
   if (
