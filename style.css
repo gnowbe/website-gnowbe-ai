@@ -217,3 +217,35 @@ footer a:hover {
     margin: 0 8px;
   }
 }
+
+/* --- YouTube Lazy Load --- */
+.youtube-lazy-load {
+  background-color: #000;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Play button style */
+.youtube-lazy-load::after {
+  content: "▶";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 80px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.youtube-lazy-load:hover::after {
+  background-color: rgba(255, 0, 0, 0.8);
+}

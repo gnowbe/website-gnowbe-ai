@@ -111,6 +111,42 @@ function initPage() {
   // Run consent check
   handleConsent();
 
+  // --- YouTube Lazy Loading ---
+  const lazyVideos = document.querySelectorAll(".youtube-lazy-load");
+
+  lazyVideos.forEach(function (video) {
+    const videoId = video.dataset.id;
+    const thumbnailPath = video.dataset.thumbnail;
+
+    // Set the thumbnail image from a custom path or the YouTube default
+    let thumbnailUrl = thumbnailPath
+      ? thumbnailPath
+      : `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+    video.style.backgroundImage = `url(${thumbnailUrl})`;
+
+    video.addEventListener("click", function () {
+      // Create the iframe element
+      const iframe = document.createElement("iframe");
+
+      // Set its attributes
+      iframe.setAttribute("class", "absolute inset-0 w-full h-full"); // Keep original classes
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute(
+        "allow",
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      );
+      iframe.setAttribute("allowfullscreen", "");
+      // Add autoplay=1 to start the video automatically
+      iframe.setAttribute(
+        "src",
+        `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1`
+      );
+
+      // Replace the placeholder div with the iframe
+      this.parentNode.replaceChild(iframe, this);
+    });
+  });
+
   // --- Event Tracking ---
   function trackClick(id, eventName, location) {
     const el = document.getElementById(id);
