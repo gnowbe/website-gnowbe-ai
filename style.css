@@ -16,11 +16,9 @@ h2 {
   /* Apply the animated gradient background */
   background: linear-gradient(
     90deg,
-    #84cc16,
-    #06b6d4,
-    #d946ef,
-    #f97316,
-    #84cc16
+    #935fee,
+    /* Gnowbe Purple */ #ffb606,
+    /* Gnowbe Yellow */ #935fee /* Gnowbe Purple */
   );
   background-size: 200% auto;
   /* Clip the background to the text */
@@ -226,7 +224,6 @@ footer a:hover {
   position: relative;
 }
 
-/* New play button style to match the Secondary Action button */
 .youtube-lazy-load::after {
   content: "";
   position: absolute;
@@ -237,7 +234,6 @@ footer a:hover {
   height: 72px;
   border-radius: 50%;
 
-  /* Color updated to match brand-guide's Secondary Action button (slate-200) */
   background-color: #e2e8f0;
 
   /* Icon color changed to dark for visibility on light gray background */

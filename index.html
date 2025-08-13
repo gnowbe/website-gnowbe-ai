@@ -168,7 +168,7 @@
   >
     <div
       id="cookie-consent-banner"
-      x-data="{ view: 'main', analytics: false }"
+      x-data="{ view: 'main', analytics: true }"
       class="hidden fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm"
     >
       <div
@@ -227,12 +227,12 @@
                 >
                   <input
                     type="checkbox"
-                    class="w-11 h-6 rounded-full appearance-none bg-teal-600"
+                    class="w-11 h-6 rounded-full appearance-none bg-[#5EC3C5]"
                     checked
                     disabled
                   />
                   <span
-                    class="absolute left-1 top-1 w-4 h-4 transform bg-white rounded-full transition-transform"
+                    class="absolute left-1 top-1 w-4 h-4 transform bg-white rounded-full transition-transform translate-x-5"
                   ></span>
                 </div>
               </div>
@@ -251,7 +251,7 @@
                 <button
                   type="button"
                   class="relative inline-flex items-center h-6 rounded-full w-11"
-                  :class="analytics ? 'bg-teal-600' : 'bg-gray-300 dark:bg-gray-600'"
+                  :class="analytics ? 'bg-[#5EC3C5]' : 'bg-gray-300 dark:bg-gray-600'"
                   @click="analytics = !analytics"
                 >
                   <span class="sr-only"
@@ -277,16 +277,7 @@
               Reject All
             </button>
             <button
-              <button
               id="save-preferences-button"
-              onclick="
-            const analyticsEnabled = this.closest('[x-data]').__x.$data.analytics;
-            if (analyticsEnabled) {
-              document.getElementById('accept-cookies').click();
-            } else {
-              document.getElementById('decline-cookies').click();
-            }
-          "
               class="bg-[#5EC3C5] hover:bg-[#53afb1] text-[#2b2b2b] font-bold py-2.5 px-6 rounded-lg transition-colors"
             >
               Save Preferences
@@ -294,7 +285,6 @@
           </div>
         </div>
       </div>
-      <button id="decline-cookies" class="hidden"></button>
     </div>
     <header
       x-data="{ open: false, dropdownOpen: false }"
@@ -649,8 +639,8 @@
               style="
                 background: linear-gradient(
                   to top right,
-                  rgba(132, 204, 22, 0.4),
-                  rgba(6, 182, 212, 0.4)
+                  rgba(147, 95, 238, 0.3),
+                  rgba(94, 195, 197, 0.3)
                 );
               "
             ></div>
@@ -663,8 +653,8 @@
               style="
                 background: linear-gradient(
                   to bottom right,
-                  rgba(217, 70, 239, 0.4),
-                  rgba(249, 115, 22, 0.4)
+                  rgba(94, 195, 197, 0.3),
+                  rgba(255, 182, 6, 0.3)
                 );
               "
             ></div>
@@ -1525,7 +1515,7 @@
               class="bg-white/80 dark:bg-slate-900/70 rounded-xl shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl flex flex-col backdrop-blur-sm"
             >
               <img
-                src="images/pre-launch.gif"
+                src="images/pre-launch.png"
                 alt="Animated GIF showing data charts and graphs, representing AI analytics."
                 class="w-full h-56 object-cover"
               />
@@ -1559,7 +1549,7 @@
               class="bg-white/80 dark:bg-slate-900/70 rounded-xl shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl flex flex-col backdrop-blur-sm"
             >
               <img
-                src="images/how-to-use.png"
+                src="images/how-to-use 1.png"
                 alt="A person's hand holding a mobile phone displaying a Gnowbe learning module."
                 class="w-full h-56 object-cover"
               />
@@ -1900,8 +1890,8 @@
               style="
                 background: linear-gradient(
                   to top right,
-                  rgba(132, 204, 22, 0.4),
-                  rgba(6, 182, 212, 0.4)
+                  rgba(147, 95, 238, 0.3),
+                  rgba(94, 195, 197, 0.3)
                 );
               "
             ></div>
@@ -1914,8 +1904,8 @@
               style="
                 background: linear-gradient(
                   to bottom right,
-                  rgba(217, 70, 239, 0.4),
-                  rgba(249, 115, 22, 0.4)
+                  rgba(94, 195, 197, 0.3),
+                  rgba(255, 182, 6, 0.3)
                 );
               "
             ></div>
