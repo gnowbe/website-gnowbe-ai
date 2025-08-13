@@ -217,7 +217,6 @@ footer a:hover {
     margin: 0 8px;
   }
 }
-
 /* --- YouTube Lazy Load --- */
 .youtube-lazy-load {
   background-color: #000;
@@ -227,25 +226,32 @@ footer a:hover {
   position: relative;
 }
 
-/* Play button style */
+/* New play button style to match the Secondary Action button */
 .youtube-lazy-load::after {
-  content: "▶";
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 60px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.6);
-  height: 80px;
-  width: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
-  transition: background-color 0.2s;
+
+  /* Color updated to match brand-guide's Secondary Action button (slate-200) */
+  background-color: #e2e8f0;
+
+  /* Icon color changed to dark for visibility on light gray background */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232B2B2B'%3E%3Cpath d='M6 3l14 11L6 22V3z'/%3E%3C/svg%3E");
+  background-size: 32px;
+  background-repeat: no-repeat;
+  background-position: center 50%;
+  padding-left: 5px;
+
+  transition: all 0.2s ease-in-out;
 }
 
 .youtube-lazy-load:hover::after {
-  background-color: rgba(255, 0, 0, 0.8);
+  /* Hover color updated to match brand-guide's button hover (slate-300) */
+  background-color: #cbd5e1;
+  transform: translate(-50%, -50%) scale(1.1);
 }
