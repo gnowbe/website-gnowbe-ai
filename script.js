@@ -27,8 +27,8 @@ function toggleTheme() {
   localStorage.setItem("theme", isDark ? "dark" : "light");
 }
 
-// --- 3. INITIALIZATION ---
-document.addEventListener("DOMContentLoaded", function () {
+// --- 3. PAGE INITIALIZATION ---
+function initPage() {
   // Apply saved theme or detect system preference
   if (
     localStorage.getItem("theme") === "dark" ||
@@ -73,25 +73,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // --- Accept All Cookies ---
   if (acceptCookiesButton) {
-    acceptCookiesButton.addEventListener("click", function () {
+    acceptCookiesButton.onclick = function () {
       localStorage.setItem("cookie_consent", "true");
       cookieConsentBanner.classList.add("hidden");
       initializeAnalytics();
-    });
+    };
   }
 
   // --- Reject All Cookies ---
   if (rejectCookiesButton) {
-    rejectCookiesButton.addEventListener("click", function () {
+    rejectCookiesButton.onclick = function () {
       localStorage.setItem("cookie_consent", "false");
       cookieConsentBanner.classList.add("hidden");
       console.log("Segment Analytics blocked due to user preference.");
-    });
+    };
   }
 
   // --- Save Preferences ---
   if (savePreferencesButton && cookieConsentBanner) {
-    savePreferencesButton.addEventListener("click", function () {
+    savePreferencesButton.onclick = function () {
       const analyticsEnabled =
         cookieConsentBanner.__x?.$data?.analytics ?? false;
       localStorage.setItem(
@@ -105,19 +105,21 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         console.log("Segment Analytics blocked due to user preference.");
       }
-    });
+    };
   }
 
-  // --- Run consent check on page load ---
+  // Run consent check
   handleConsent();
 
   // --- Event Tracking ---
   function trackClick(id, eventName, location) {
     const el = document.getElementById(id);
     if (el) {
-      el.addEventListener("click", () => {
-        analytics.track(eventName, { location });
-      });
+      el.onclick = () => {
+        if (window.analytics) {
+          analytics.track(eventName, { location });
+        }
+      };
     }
   }
 
@@ -125,4 +127,14 @@ document.addEventListener("DOMContentLoaded", function () {
   trackClick("hero-explore-ai", "Explore Gnowbe AI Clicked", "hero");
   trackClick("footer-book-demo", "Book a Demo Clicked", "footer");
   trackClick("footer-try-ai", "Try Gnowbe AI Free Clicked", "footer");
+}
+
+// --- 4. RUN INITIALIZATION ---
+document.addEventListener("DOMContentLoaded", initPage);
+
+// --- 5. RESTORE FROM BFCACHE ---
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted) {
+    initPage();
+  }
 });
