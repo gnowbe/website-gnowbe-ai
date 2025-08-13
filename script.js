@@ -50,11 +50,24 @@ function initPage() {
 
   // --- Analytics Initialization ---
   function initializeAnalytics() {
+    // This part is for your existing Segment analytics
     if (window.analytics && !window.analytics.initialized) {
       analytics.load("uC8lzaUyjmypXHvHqVZenGjApDyIIKck");
       analytics.page();
       window.analytics.initialized = true;
       console.log("Segment Analytics Initialized.");
+    }
+
+    // Load HubSpot script if consent is given and script isn't already there
+    if (!document.getElementById("hs-script-loader")) {
+      const hsScript = document.createElement("script");
+      hsScript.id = "hs-script-loader";
+      hsScript.type = "text/javascript";
+      hsScript.src = "//js.hs-scripts.com/2697669.js";
+      hsScript.async = true;
+      hsScript.defer = true;
+      document.body.appendChild(hsScript);
+      console.log("HubSpot Analytics Initialized.");
     }
   }
 
@@ -65,7 +78,7 @@ function initPage() {
     if (consent === "true") {
       initializeAnalytics();
     } else if (consent === "false") {
-      console.log("Segment Analytics blocked due to user preference.");
+      console.log("Analytics blocked due to user preference.");
     } else if (cookieConsentBanner) {
       cookieConsentBanner.classList.remove("hidden");
     }
@@ -85,7 +98,7 @@ function initPage() {
     rejectCookiesButton.onclick = function () {
       localStorage.setItem("cookie_consent", "false");
       cookieConsentBanner.classList.add("hidden");
-      console.log("Segment Analytics blocked due to user preference.");
+      console.log("Analytics blocked due to user preference.");
     };
   }
 
@@ -103,7 +116,7 @@ function initPage() {
       if (analyticsEnabled) {
         initializeAnalytics();
       } else {
-        console.log("Segment Analytics blocked due to user preference.");
+        console.log("Analytics blocked due to user preference.");
       }
     };
   }
@@ -129,7 +142,7 @@ function initPage() {
       const iframe = document.createElement("iframe");
 
       // Set its attributes
-      iframe.setAttribute("class", "absolute inset-0 w-full h-full"); // Keep original classes
+      iframe.setAttribute("class", "absolute inset-0 w-full h-full");
       iframe.setAttribute("frameborder", "0");
       iframe.setAttribute(
         "allow",
