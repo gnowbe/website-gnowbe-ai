@@ -1,0 +1,256 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* --- Base & Accessibility --- */
+html {
+  scroll-behavior: smooth;
+}
+
+:focus-visible {
+  outline: 2px solid #1b585e;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* --- Typography --- */
+h1,
+h2 {
+  font-family: "Noto Serif", serif;
+  /* Apply the animated gradient background */
+  background: linear-gradient(
+    90deg,
+    #935fee,
+    /* Gnowbe Purple */ #ffb606,
+    /* Gnowbe Yellow */ #935fee /* Gnowbe Purple */
+  );
+  background-size: 200% auto;
+  /* Clip the background to the text */
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Make the text transparent to show the gradient */
+  color: transparent;
+  /* Apply the animation */
+  animation: gradient-move 10s linear infinite;
+}
+
+@media (max-width: 767px) {
+  h1,
+  h2 {
+    background-position: 0% 50%;
+    animation: none;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #2b2b2b;
+  }
+}
+
+/* --- Marquee (Language Flags) --- */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 60px;
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: center;
+  border-radius: 0.75rem;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 10%,
+    rgba(0, 0, 0, 1) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.marquee-content {
+  display: flex;
+  width: 200%;
+  animation: marquee 10s linear infinite;
+  animation-play-state: paused;
+}
+
+.marquee-wrapper:hover .marquee-content {
+  animation-play-state: running;
+}
+
+.marquee-slow .marquee-content {
+  animation-duration: 15s;
+}
+
+.marquee-reverse .marquee-content {
+  animation-name: marquee-reverse;
+}
+
+.marquee-group {
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flag-img {
+  width: 64px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* --- Chat Bubble & Typing Animation --- */
+.chat-bubble-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
+}
+
+.chat-bubble {
+  position: relative;
+  background-color: #d9d9d9;
+  color: #2b2b2b;
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 90%;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.chat-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 2rem;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-top-color: #d9d9d9;
+  border-bottom: 0;
+  border-left: 0;
+  margin-left: -10px;
+  margin-bottom: -20px;
+}
+
+.typing-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  border-right: 0.15em solid transparent;
+}
+
+.typing-text.animate-typing {
+  animation: typewriter 4s steps(44) forwards,
+    blink-caret 0.75s step-end infinite;
+}
+
+/* --- Links & Hover Effects --- */
+#hero-book-demo:hover {
+  text-decoration: none;
+}
+
+header nav div a:not([class*="bg-gnowbe-yellow"]),
+#mobile-menu a:not([class*="bg-gnowbe-yellow"]),
+footer a {
+  text-decoration: none;
+  transition: text-decoration-color 0.3s ease;
+}
+
+header nav div a:not([class*="bg-gnowbe-yellow"]):hover,
+#mobile-menu a:not([class*="bg-gnowbe-yellow"]):hover,
+footer a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #1b585e;
+}
+
+/* --- Responsive Fix for Typing Animation --- */
+@media (max-width: 767px) {
+  .typing-text.animate-typing {
+    /* Allow text to wrap on multiple lines */
+    white-space: normal;
+
+    /* Reset animation properties so the text is visible by default */
+    width: auto;
+    overflow: visible;
+    border-right: none;
+    animation: none; /* Disable the typewriter and caret animations */
+  }
+  .flag-img {
+    margin: 0 8px;
+  }
+}
+/* --- YouTube Lazy Load --- */
+.youtube-lazy-load {
+  background-color: #000;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.youtube-lazy-load::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+
+  background-color: #e2e8f0;
+
+  /* Icon color changed to dark for visibility on light gray background */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232B2B2B'%3E%3Cpath d='M6 3l14 11L6 22V3z'/%3E%3C/svg%3E");
+  background-size: 32px;
+  background-repeat: no-repeat;
+  background-position: center 50%;
+  padding-left: 5px;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.youtube-lazy-load:hover::after {
+  /* Hover color updated to match brand-guide's button hover (slate-300) */
+  background-color: #cbd5e1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
