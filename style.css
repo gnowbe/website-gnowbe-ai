@@ -213,4 +213,7 @@ footer a:hover {
     border-right: none;
     animation: none; /* Disable the typewriter and caret animations */
   }
+  .flag-img {
+    margin: 0 8px;
+  }
 }
