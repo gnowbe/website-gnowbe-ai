@@ -1,11 +1,11 @@
-// -- Theme Toggle Functionality --
+// THEME TOGGLE
 function toggleTheme() {
   const html = document.documentElement;
   const isDark = html.classList.toggle("dark");
   localStorage.setItem("theme", isDark ? "dark" : "light");
 }
 
-// Page Initialization
+// PAGE INITIALIZATION
 function initPage() {
   // Apply saved theme or detect system preference
   if (
@@ -18,7 +18,7 @@ function initPage() {
     document.documentElement.classList.remove("dark");
   }
 
-  // --- Cookie Consent Elements ---
+  // COOKIE CONSENT ELEMENTS
   const cookieConsentBanner = document.getElementById("cookie-consent-banner");
   const acceptCookiesButton = document.getElementById("accept-cookies");
   const rejectCookiesButton = document.getElementById("reject-cookies");
@@ -26,7 +26,7 @@ function initPage() {
     "save-preferences-button"
   );
 
-  // --- Analytics Initialization ---
+  // ANALYTICS INITIALIZATION
   function initializeAnalytics() {
     if (window.analytics && !window.analytics.initialized) {
       analytics.load("uC8lzaUyjmypXHvHqVZenGjApDyIIKck");
@@ -36,7 +36,7 @@ function initPage() {
     }
   }
 
-  // --- Consent Handling ---
+  // CONSENT HANDLING
   function handleConsent() {
     const consent = localStorage.getItem("cookie_consent");
 
@@ -49,7 +49,7 @@ function initPage() {
     }
   }
 
-  // --- Accept All Cookies ---
+  // Accept All Cookies
   if (acceptCookiesButton) {
     acceptCookiesButton.onclick = function () {
       localStorage.setItem("cookie_consent", "true");
@@ -58,7 +58,7 @@ function initPage() {
     };
   }
 
-  // --- Reject All Cookies ---
+  // Reject All Cookies
   if (rejectCookiesButton) {
     rejectCookiesButton.onclick = function () {
       localStorage.setItem("cookie_consent", "false");
@@ -67,7 +67,7 @@ function initPage() {
     };
   }
 
-  // --- Save Preferences ---
+  // Save Preferences
   if (savePreferencesButton && cookieConsentBanner) {
     savePreferencesButton.onclick = function () {
       const analyticsEnabled =
@@ -89,7 +89,7 @@ function initPage() {
   // Run consent check
   handleConsent();
 
-  // --- YouTube Lazy Loading ---
+  // YOUTUBE LAZY LOADING
   const lazyVideos = document.querySelectorAll(".youtube-lazy-load");
 
   lazyVideos.forEach(function (video) {
@@ -125,7 +125,7 @@ function initPage() {
     });
   });
 
-  // --- Event Tracking ---
+  // EVENT TRACKING
   function trackClick(id, eventName, location) {
     const el = document.getElementById(id);
     if (el) {
@@ -143,10 +143,10 @@ function initPage() {
   trackClick("footer-try-ai", "Try Gnowbe AI Free Clicked", "footer");
 }
 
-// --- 4. RUN INITIALIZATION ---
+// RUN INITIALIZATION
 document.addEventListener("DOMContentLoaded", initPage);
 
-// --- 5. RESTORE FROM BFCACHE ---
+// RESTORE FROM BFCACHE
 window.addEventListener("pageshow", (event) => {
   if (event.persisted) {
     initPage();
