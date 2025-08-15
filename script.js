@@ -5,7 +5,40 @@ function toggleTheme() {
   localStorage.setItem("theme", isDark ? "dark" : "light");
 }
 
-// PAGE INITIALIZATION
+// LOAD SEGMENT ANALYTICS AFTER CONSENT
+function loadSegmentAnalytics() {
+  if (!window.analytics) {
+    const script = document.createElement("script");
+    script.src =
+      "https://cdn.segment.com/analytics.js/v1/uC8lzaUyjmypXHvHqVZenGjApDyIIKck/analytics.min.js";
+    script.async = true;
+    script.onload = () => {
+      console.log("Segment Analytics Loaded.");
+      if (typeof analytics !== "undefined") {
+        analytics.page();
+        window.analytics.initialized = true;
+      }
+    };
+    document.head.appendChild(script);
+  } else if (!window.analytics.initialized) {
+    analytics.page();
+    window.analytics.initialized = true;
+  }
+}
+
+// TRACK CLICKS
+function trackClick(id, eventName, location) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.onclick = () => {
+      if (window.analytics && window.analytics.initialized) {
+        analytics.track(eventName, { location });
+      }
+    };
+  }
+}
+
+// INITIALIZE PAGE
 function initPage() {
   // Apply saved theme or detect system preference
   if (
@@ -26,39 +59,26 @@ function initPage() {
     "save-preferences-button"
   );
 
-  // ANALYTICS INITIALIZATION
-  function initializeAnalytics() {
-    if (window.analytics && !window.analytics.initialized) {
-      analytics.load("uC8lzaUyjmypXHvHqVZenGjApDyIIKck");
-      analytics.page();
-      window.analytics.initialized = true;
-      console.log("Segment Analytics Initialized.");
-    }
+  // Consent handling
+  const consent = localStorage.getItem("cookie_consent");
+  if (consent === "true") {
+    loadSegmentAnalytics();
+  } else if (consent === "false") {
+    console.log("Segment Analytics blocked due to user preference.");
+  } else if (cookieConsentBanner) {
+    cookieConsentBanner.classList.remove("hidden");
   }
 
-  // CONSENT HANDLING
-  function handleConsent() {
-    const consent = localStorage.getItem("cookie_consent");
-
-    if (consent === "true") {
-      initializeAnalytics();
-    } else if (consent === "false") {
-      console.log("Segment Analytics blocked due to user preference.");
-    } else if (cookieConsentBanner) {
-      cookieConsentBanner.classList.remove("hidden");
-    }
-  }
-
-  // Accept All Cookies
+  // Accept All
   if (acceptCookiesButton) {
     acceptCookiesButton.onclick = function () {
       localStorage.setItem("cookie_consent", "true");
       cookieConsentBanner.classList.add("hidden");
-      initializeAnalytics();
+      loadSegmentAnalytics();
     };
   }
 
-  // Reject All Cookies
+  // Reject All
   if (rejectCookiesButton) {
     rejectCookiesButton.onclick = function () {
       localStorage.setItem("cookie_consent", "false");
@@ -79,64 +99,40 @@ function initPage() {
       cookieConsentBanner.classList.add("hidden");
 
       if (analyticsEnabled) {
-        initializeAnalytics();
+        loadSegmentAnalytics();
       } else {
         console.log("Segment Analytics blocked due to user preference.");
       }
     };
   }
 
-  // Run consent check
-  handleConsent();
-
   // YOUTUBE LAZY LOADING
   const lazyVideos = document.querySelectorAll(".youtube-lazy-load");
-
   lazyVideos.forEach(function (video) {
     const videoId = video.dataset.id;
     const thumbnailPath = video.dataset.thumbnail;
-
-    // Set the thumbnail image from a custom path or the YouTube default
-    let thumbnailUrl = thumbnailPath
-      ? thumbnailPath
-      : `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+    const thumbnailUrl =
+      thumbnailPath || `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
     video.style.backgroundImage = `url(${thumbnailUrl})`;
 
     video.addEventListener("click", function () {
-      // Create the iframe element
       const iframe = document.createElement("iframe");
-
-      // Set its attributes
-      iframe.setAttribute("class", "absolute inset-0 w-full h-full"); // Keep original classes
+      iframe.setAttribute("class", "absolute inset-0 w-full h-full");
       iframe.setAttribute("frameborder", "0");
       iframe.setAttribute(
         "allow",
         "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       );
       iframe.setAttribute("allowfullscreen", "");
-      // Add autoplay=1 to start the video automatically
       iframe.setAttribute(
         "src",
         `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1`
       );
-
-      // Replace the placeholder div with the iframe
       this.parentNode.replaceChild(iframe, this);
     });
   });
 
-  // EVENT TRACKING
-  function trackClick(id, eventName, location) {
-    const el = document.getElementById(id);
-    if (el) {
-      el.onclick = () => {
-        if (window.analytics) {
-          analytics.track(eventName, { location });
-        }
-      };
-    }
-  }
-
+  // EVENT TRACKING (works immediately if analytics is ready)
   trackClick("hero-book-demo", "Book a Demo Clicked", "hero");
   trackClick("hero-explore-ai", "Explore Gnowbe AI Clicked", "hero");
   trackClick("footer-book-demo", "Book a Demo Clicked", "footer");
