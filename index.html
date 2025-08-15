@@ -40,32 +40,30 @@
       property="twitter:description"
       content="Gnowbe's AI agents turn your content into engaging, effective learning experiences in minutes, not months."
     />
-    <meta property="twitter:image"
-    content="https://cdn.prod.website-files.com/67b84471f527f6fccec28c78/689ccd36e80a80341a534974_og-preview.png
+    <meta
+      property="twitter:image"
+      content="https://cdn.prod.website-files.com/67b84471f527f6fccec28c78/689ccd36e80a80341a534974_og-preview.png"
     />
 
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href="images/Gnowbe App Logo.png" type="image/png" />
+    <link rel="icon" href="images/Gnowbe App Logo.webp" type="image/webp" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
     ></script>
+
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
 
+    <!-- Google Fonts for brand typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@700&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&family=Noto+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
 
@@ -153,7 +151,7 @@
   </head>
 
   <body
-    class="bg-white dark:bg-slate-900 text-gray-800 dark:text-gray-200 font-sans antialiased"
+    class="bg-white dark:bg-dark-bg-start text-gray-800 dark:text-gray-200 font-sans antialiased"
   >
     <div
       id="cookie-consent-banner"
@@ -461,11 +459,13 @@
             </svg>
           </button>
           <a
-            id="hero-book-demo"
+            id="header-book-demo"
             href="https://www.gnowbe.com/chat-with-us"
-            class="bg-[#5EC3C5] hover:bg-[#53afb1] text-[#2b2b2b] px-8 py-3 rounded-md font-semibold transition-colors text-lg w-full sm:w-auto shadow-md"
-            >Book a Demo</a
+            class="bg-brand-yellow text-gray-900 px-8 py-3 rounded-md font-semibold transition-colors text-lg w-full sm:w-auto shadow-md"
+            style="text-decoration: none"
           >
+            Book a Demo
+          </a>
         </div>
 
         <div class="lg:hidden flex items-center">
@@ -618,72 +618,96 @@
     </header>
 
     <main>
-      <section class="relative bg-[#EDF2F4] dark:bg-[#1e293b] overflow-hidden">
-        <div aria-hidden="true" class="absolute inset-0 z-0">
-          <div
-            class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 transform"
+      <!-- Hero Section -->
+      <div
+        class="relative min-h-[90vh] md:min-h-[80vh] w-full flex items-center justify-center text-center overflow-hidden"
+      >
+        <!-- Background Elements -->
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-brand-teal via-brand-purple to-dark-bg-end dark:hidden"
+        ></div>
+        <div
+          class="absolute inset-0 hidden dark:block bg-gradient-to-br from-brand-teal via-brand-purple to-dark-bg-end"
+        ></div>
+        <div
+          class="absolute top-24 left-20 w-24 h-24 text-white/10 animate-float hidden lg:block"
+          style="animation-delay: 0s"
+        >
+          <!-- Lightbulb Icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            <div
-              class="h-[60rem] w-[60rem] rounded-full blur-3xl"
-              style="
-                background: linear-gradient(
-                  to top right,
-                  rgba(147, 95, 238, 0.3),
-                  rgba(94, 195, 197, 0.3)
-                );
-              "
-            ></div>
-          </div>
-          <div
-            class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 transform"
-          >
-            <div
-              class="h-[60rem] w-[60rem] rounded-full blur-3xl"
-              style="
-                background: linear-gradient(
-                  to bottom right,
-                  rgba(94, 195, 197, 0.3),
-                  rgba(255, 182, 6, 0.3)
-                );
-              "
-            ></div>
-          </div>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1"
+              d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+            />
+          </svg>
         </div>
         <div
-          class="relative z-10 mx-auto max-w-4xl px-6 py-32 sm:py-48 lg:py-56 text-center"
+          class="absolute bottom-20 right-20 w-32 h-32 text-white/10 animate-float hidden lg:block"
+          style="animation-delay: 1.5s"
         >
+          <!-- Chat Icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1"
+              d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+            />
+          </svg>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 p-6 sm:p-8 max-w-4xl mx-auto">
           <h1
-            class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl"
+            class="text-4xl sm:text-5xl md:text-7xl font-bold text-white font-serif leading-tight animate-fade-in-up [text-shadow:_0_2px_4px_rgb(0_0_0_/_40%)]"
           >
             Turn Your Expertise into Impact, Instantly.
           </h1>
-          <p class="mt-6 text-lg leading-8 text-slate-700 dark:text-slate-300">
+          <p
+            class="mt-6 text-base sm:text-lg md:text-xl text-white/90 font-sans max-w-3xl mx-auto animate-fade-in-up [text-shadow:_0_1px_2px_rgb(0_0_0_/_40%)]"
+          >
             For L&D leaders and expert creators, Gnowbe AI is the specialized
             platform that transforms your knowledge into engaging learning
             experiences that drive measurable results—in minutes, not months.
           </p>
-
-          <div class="mt-10 flex items-center justify-center gap-x-6">
-            <a
+          <div
+            class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up"
+            style="animation-delay: 0.6s"
+          >
+            <button
               id="hero-book-demo"
-              href="https://www.gnowbe.com/chat-with-us"
-              class="bg-[#5EC3C5] hover:bg-[#53afb1] text-[#2b2b2b] px-8 py-3 rounded-md font-semibold transition-colors text-lg w-full sm:w-auto shadow-md"
-              >Book a Demo</a
+              class="w-full sm:w-auto bg-brand-yellow text-gray-900 font-sans font-bold py-3 px-8 rounded-xl text-lg transition-all duration-300 shadow-xl focus:outline-none focus:ring-4 focus:ring-white/50"
             >
-            <a
+              Book a Demo
+            </button>
+            <button
               id="hero-explore-ai"
-              href="https://web.gnowbe.com"
-              class="font-semibold leading-6 text-slate-800 dark:text-slate-200"
-              >Explore Gnowbe AI
-              <span class="transition-all" aria-hidden="true">→</span>
-            </a>
+              class="w-full sm:w-auto bg-black/10 dark:bg-white/10 border-2 border-white/50 text-white font-sans font-bold py-3 px-8 rounded-xl text-lg hover:bg-black/20 dark:hover:bg-white/20 hover:border-white transition-all duration-300"
+            >
+              Explore Gnowbe AI
+            </button>
           </div>
-          <p class="mt-6 text-sm text-slate-700 dark:text-gray-200">
-            Get <b>FREE</b> access to GNOWBE AI Agents today to complete
-            <b>200 tasks</b> for you.
+          <p
+            class="mt-8 text-xs sm:text-sm text-white/70 font-sans max-w-3xl mx-auto animate-fade-in-up"
+            style="animation-delay: 0.9s; [text-shadow:_0_1px_2px_rgb(0_0_0_/_40%)]"
+          >
+            Get <strong>FREE</strong> access to GNOWBE AI Agents today to
+            complete <strong>200 tasks</strong> for you.
           </p>
         </div>
-      </section>
+      </div>
 
       <section class="py-16 md:py-24 bg-[#EDF2F4] dark:bg-[#1e293b]">
         <div class="container mx-auto px-6 max-w-screen-xl">
@@ -1880,49 +1904,18 @@
       </section>
 
       <section
-        class="relative bg-[#EDF2F4] dark:bg-[#1e293b] overflow-hidden py-36 md:py-48"
+        class="relative bg-gradient-to-br from-brand-teal via-brand-purple to-dark-bg-end overflow-hidden py-36 md:py-48"
       >
-        <div aria-hidden="true" class="absolute inset-0 z-0">
-          <div
-            class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 transform"
-          >
-            <div
-              class="h-[60rem] w-[60rem] rounded-full blur-3xl"
-              style="
-                background: linear-gradient(
-                  to top right,
-                  rgba(147, 95, 238, 0.3),
-                  rgba(94, 195, 197, 0.3)
-                );
-              "
-            ></div>
-          </div>
-          <div
-            class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 transform"
-          >
-            <div
-              class="h-[60rem] w-[60rem] rounded-full blur-3xl"
-              style="
-                background: linear-gradient(
-                  to bottom right,
-                  rgba(94, 195, 197, 0.3),
-                  rgba(255, 182, 6, 0.3)
-                );
-              "
-            ></div>
-          </div>
-        </div>
-
         <div
           class="relative z-10 container mx-auto px-6 text-center max-w-screen-xl"
         >
           <h2
-            class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight"
+            class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight"
           >
             Ready to Design Better Learning, Faster?
           </h2>
           <p
-            class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-slate-700 dark:text-slate-300 font-medium"
+            class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-white/90 font-medium"
           >
             You've seen what a specialized AI can do. Stop letting content
             design be a bottleneck. Start delivering high-impact learning that
@@ -1935,18 +1928,17 @@
             <a
               id="footer-book-demo"
               href="https://www.gnowbe.com/chat-with-us"
-              class="bg-[#5EC3C5] hover:bg-[#53afb1] text-[#2b2b2b] px-8 py-3 rounded-md font-semibold transition-colors text-lg w-full sm:w-auto shadow-md"
+              class="bg-brand-yellow text-gray-900 px-8 py-3 rounded-md font-semibold transition-colors text-lg w-full sm:w-auto shadow-md"
               >Book a Demo</a
             >
             <a
               id="footer-try-ai"
               href="https://web.gnowbe.com"
-              class="font-semibold leading-6 text-slate-800 dark:text-slate-200"
-              >Try Gnowbe AI Free
-              <span class="transition-all" aria-hidden="true">→</span>
-            </a>
+              class="w-full sm:w-auto bg-black/10 dark:bg-white/10 border-2 border-white/50 text-white font-sans font-bold py-3 px-8 rounded-xl text-lg hover:bg-black/20 dark:hover:bg-white/20 hover:border-white transition-all duration-300"
+              >Try Gnowbe AI Free</a
+            >
           </div>
-          <p class="mt-6 text-sm text-gray-700 dark:text-gray-200">
+          <p class="mt-6 text-sm text-white/70">
             Start today and get <strong>200 AI tasks on us</strong>. No credit
             card required.
           </p>
