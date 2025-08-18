@@ -8,62 +8,124 @@ function toggleTheme() {
 }
 
 /*************************
- * ANALYTICS LOADERS (GDPR)
+ * SEGMENT (v5) LOADER (GDPR)
  *************************/
 function loadSegmentAnalytics() {
-  if (
-    window.segmentLoading ||
-    (window.analytics && window.analytics.initialized)
-  )
-    return;
-  window.segmentLoading = true;
+  if (window.segmentLoaded) return;
+  window.segmentLoaded = true;
 
-  const script = document.createElement("script");
-  script.src =
-    "https://cdn.segment.com/analytics.js/v1/uC8lzaUyjmypXHvHqVZenGjApDyIIKck/analytics.min.js";
-  script.async = true;
-  script.onload = () => {
-    try {
-      if (typeof analytics !== "undefined") {
-        analytics.page(); // Segment page call
-        window.analytics.initialized = true;
-        console.log("[Analytics] Segment loaded & page() sent");
+  // --- SEGMENT v5 SNIPPET (unchanged, just wrapped) ---
+  !(function () {
+    var i = "analytics",
+      analytics = (window[i] = window[i] || []);
+    if (!analytics.initialize) {
+      if (analytics.invoked) {
+        window.console &&
+          console.error &&
+          console.error("Segment snippet included twice.");
+      } else {
+        analytics.invoked = !0;
+        analytics.methods = [
+          "trackSubmit",
+          "trackClick",
+          "trackLink",
+          "trackForm",
+          "pageview",
+          "identify",
+          "reset",
+          "group",
+          "track",
+          "ready",
+          "alias",
+          "debug",
+          "page",
+          "screen",
+          "once",
+          "off",
+          "on",
+          "addSourceMiddleware",
+          "addIntegrationMiddleware",
+          "setAnonymousId",
+          "addDestinationMiddleware",
+          "register",
+        ];
+        analytics.factory = function (e) {
+          return function () {
+            if (window[i].initialized)
+              return window[i][e].apply(window[i], arguments);
+            var n = Array.prototype.slice.call(arguments);
+            if (
+              ["track", "screen", "alias", "group", "page", "identify"].indexOf(
+                e
+              ) > -1
+            ) {
+              var c = document.querySelector("link[rel='canonical']");
+              n.push({
+                __t: "bpc",
+                c: (c && c.getAttribute("href")) || void 0,
+                p: location.pathname,
+                u: location.href,
+                s: location.search,
+                t: document.title,
+                r: document.referrer,
+              });
+            }
+            n.unshift(e);
+            analytics.push(n);
+            return analytics;
+          };
+        };
+        for (var n = 0; n < analytics.methods.length; n++) {
+          var key = analytics.methods[n];
+          analytics[key] = analytics.factory(key);
+        }
+        analytics.load = function (key, n) {
+          var t = document.createElement("script");
+          t.type = "text/javascript";
+          t.async = !0;
+          t.setAttribute("data-global-segment-analytics-key", i);
+          t.src =
+            "https://cdn.segment.com/analytics.js/v1/" +
+            key +
+            "/analytics.min.js";
+          var r = document.getElementsByTagName("script")[0];
+          r.parentNode.insertBefore(t, r);
+          analytics._loadOptions = n;
+        };
+        analytics._writeKey = "uC8lzaUyjmypXHvHqVZenGjApDyIIKck";
+        analytics.SNIPPET_VERSION = "5.2.0";
+
+        // Load + queue a page() immediately (as Segment recommends)
+        analytics.load("uC8lzaUyjmypXHvHqVZenGjApDyIIKck");
+        analytics.page();
       }
-    } catch (e) {
-      console.warn("[Analytics] Segment onload error:", e);
     }
-  };
-  script.onerror = () => {
-    console.warn(
-      "[Analytics] Segment script failed to load (possibly blocked by an extension)."
-    );
-  };
-  document.head.appendChild(script);
+  })();
+  // --- end Segment snippet wrapper ---
+
+  console.log("[Analytics] Segment snippet injected");
 }
 
+/***********************
+ * GA4 LOADER (GDPR)
+ ***********************/
 function loadGA(measurementId) {
   if (window.gtagLoaded) return;
 
-  // Loader
   const s = document.createElement("script");
   s.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
   s.async = true;
-  s.onload = () => {
-    console.log("[Analytics] GA script loaded:", measurementId);
-  };
-  s.onerror = () => {
-    console.warn(
-      "[Analytics] GA script failed to load (possibly blocked by an extension)."
-    );
-  };
+  s.onload = () => console.log("[Analytics] GA script loaded:", measurementId);
+  s.onerror = () =>
+    console.warn("[Analytics] GA script failed to load (blocked?)");
   document.head.appendChild(s);
 
-  // Bootstrap gtag
   window.dataLayer = window.dataLayer || [];
   function gtag() {
     dataLayer.push(arguments);
   }
   window.gtag = gtag;
+
   gtag("js", new Date());
   gtag("config", measurementId); // sends page_view
   window.gtagLoaded = true;
@@ -74,26 +136,17 @@ function loadGA(measurementId) {
  * UNIFIED EVENT SEND (SEGMENT+GA)
  *********************************/
 function sendEvent(eventName, props = {}) {
-  // Segment track
+  // Segment: OK to call even before analytics.js fully loads; the snippet queues it.
   try {
-    if (window.analytics && window.analytics.initialized) {
-      analytics.track(eventName, props);
-      // console.debug("[Track] Segment:", eventName, props);
-    }
-  } catch (e) {
-    // no-op
-  }
+    window.analytics &&
+      window.analytics.track &&
+      window.analytics.track(eventName, props);
+  } catch {}
 
-  // GA4 event
+  // GA4
   try {
-    if (typeof window.gtag === "function" && window.gtagLoaded) {
-      // GA event names typically snake_case; keep your custom name as-is
-      window.gtag("event", eventName, props);
-      // console.debug("[Track] GA4:", eventName, props);
-    }
-  } catch (e) {
-    // no-op
-  }
+    if (window.gtagLoaded) window.gtag("event", eventName, props);
+  } catch {}
 }
 
 /*****************
@@ -111,7 +164,7 @@ function trackClick(id, eventName, props = {}) {
  * PAGE INITIALIZE
  *****************/
 function initPage() {
-  // Theme on first paint
+  // Theme
   if (
     localStorage.getItem("theme") === "dark" ||
     (!("theme" in localStorage) &&
@@ -122,53 +175,47 @@ function initPage() {
     document.documentElement.classList.remove("dark");
   }
 
-  // Cookie banner + consent
-  const cookieConsentBanner = document.getElementById("cookie-consent-banner");
+  // Cookie consent
+  const banner = document.getElementById("cookie-consent-banner");
   const acceptBtn = document.getElementById("accept-cookies");
   const rejectBtn = document.getElementById("reject-cookies");
   const savePrefsBtn = document.getElementById("save-preferences-button");
 
   const consent = localStorage.getItem("cookie_consent");
   if (consent === "true") {
-    // Load analytics immediately
     loadSegmentAnalytics();
-    loadGA("G-XVJPB7R5S9"); // <-- your GA4 Measurement ID
+    loadGA("G-XVJPB7R5S9");
   } else if (consent === "false") {
     console.log("[Analytics] Disabled by user preference.");
-  } else if (cookieConsentBanner) {
-    // Show banner if no choice yet
-    cookieConsentBanner.classList.remove("hidden");
+  } else if (banner) {
+    banner.classList.remove("hidden");
   }
 
-  // Accept All
   if (acceptBtn) {
     acceptBtn.onclick = function () {
       localStorage.setItem("cookie_consent", "true");
-      cookieConsentBanner?.classList.add("hidden");
+      banner?.classList.add("hidden");
       loadSegmentAnalytics();
       loadGA("G-XVJPB7R5S9");
     };
   }
 
-  // Reject All
   if (rejectBtn) {
     rejectBtn.onclick = function () {
       localStorage.setItem("cookie_consent", "false");
-      cookieConsentBanner?.classList.add("hidden");
+      banner?.classList.add("hidden");
       console.log("[Analytics] Disabled by user preference.");
     };
   }
 
-  // Save Preferences (reads Alpine's x-data 'analytics' toggle if present)
-  if (savePrefsBtn && cookieConsentBanner) {
+  if (savePrefsBtn && banner) {
     savePrefsBtn.onclick = function () {
-      const analyticsEnabled =
-        cookieConsentBanner.__x?.$data?.analytics ?? false;
+      const analyticsEnabled = banner.__x?.$data?.analytics ?? false;
       localStorage.setItem(
         "cookie_consent",
         analyticsEnabled ? "true" : "false"
       );
-      cookieConsentBanner.classList.add("hidden");
+      banner.classList.add("hidden");
       if (analyticsEnabled) {
         loadSegmentAnalytics();
         loadGA("G-XVJPB7R5S9");
@@ -178,9 +225,7 @@ function initPage() {
     };
   }
 
-  /***********************
-   * YouTube Lazy Loading
-   ***********************/
+  // YouTube lazy
   const lazyVideos = document.querySelectorAll(".youtube-lazy-load");
   lazyVideos.forEach(function (video) {
     const videoId = video.dataset.id;
@@ -188,7 +233,6 @@ function initPage() {
     const thumbnailUrl =
       thumbnailPath || `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
     video.style.backgroundImage = `url(${thumbnailUrl})`;
-
     video.addEventListener("click", function () {
       const iframe = document.createElement("iframe");
       iframe.setAttribute("class", "absolute inset-0 w-full h-full");
@@ -203,19 +247,12 @@ function initPage() {
     });
   });
 
-  /***********************
-   * CTA EVENT BINDINGS
-   ***********************/
-  // Header
+  // CTA bindings
   trackClick("header-book-demo", "Book a Demo Clicked", { location: "header" });
-
-  // Hero
   trackClick("hero-book-demo", "Book a Demo Clicked", { location: "hero" });
   trackClick("hero-explore-ai", "Explore Gnowbe AI Clicked", {
     location: "hero",
   });
-
-  // Footer (binds only if present)
   trackClick("footer-book-demo", "Book a Demo Clicked", { location: "footer" });
   trackClick("footer-try-ai", "Try Gnowbe AI Free Clicked", {
     location: "footer",
@@ -226,11 +263,7 @@ function initPage() {
  * BOOTSTRAP PAGE
  *****************/
 document.addEventListener("DOMContentLoaded", initPage);
-
-// Restore after bfcache
 window.addEventListener("pageshow", (event) => {
   if (event.persisted) initPage();
 });
-
-// Expose toggleTheme globally if button uses onclick
 window.toggleTheme = toggleTheme;
