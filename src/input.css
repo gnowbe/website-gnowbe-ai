@@ -204,6 +204,9 @@ footer a:hover {
 
 /* --- Responsive Fix for Typing Animation --- */
 @media (max-width: 767px) {
+  .marquee-content {
+    animation: none;
+  }
   .typing-text.animate-typing {
     /* Allow text to wrap on multiple lines */
     white-space: normal;
@@ -216,6 +219,19 @@ footer a:hover {
   }
   .flag-img {
     margin: 0 8px;
+  }
+
+  .marquee-reverse {
+    animation: none;
+  }
+
+  @keyframes marquee-reverse {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(50%);
+    }
   }
 }
 /* --- YouTube Lazy Load --- */
