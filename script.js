@@ -95,9 +95,14 @@ function loadSegmentAnalytics() {
         analytics._writeKey = "uC8lzaUyjmypXHvHqVZenGjApDyIIKck";
         analytics.SNIPPET_VERSION = "5.2.0";
 
-        // Load + queue a page() immediately (as Segment recommends)
         analytics.load("uC8lzaUyjmypXHvHqVZenGjApDyIIKck");
-        analytics.page();
+
+        // ---- CHANGE START ----
+        // 1. Identify the user first (creates an anonymous user for tracking)
+        analytics.identify();
+        // 2. Send a named page view event
+        analytics.page("Website Gnowbe AI Landing Page Viewed");
+        // ---- CHANGE END ----
       }
     }
   })();
