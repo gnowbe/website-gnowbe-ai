@@ -12,10 +12,6 @@ html {
   border-radius: 2px;
 }
 
-body {
-  padding-bottom: 70px; /* adjust to match banner height */
-}
-
 /* --- Typography --- */
 h1,
 h2 {
